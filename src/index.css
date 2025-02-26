@@ -263,8 +263,8 @@ template {
 
 @font-face {
   font-family: 'Belwe';
-  src: url('./fonts/Belwe-Bold.woff2'),
-       url('./fonts/Belwe-Bold.woff');
+  src: url('./fonts/Belwe-Bold.woff2') format('woff2'),
+       url('./fonts/Belwe-Bold.woff') format('woff');
   font-display: swap;
 }
 
@@ -284,7 +284,8 @@ body {
   margin: 0;
   background-color: #131313;
   color: #ffffff;
-  padding: 10px
+  padding: 10px;
+  font-family: "Times New Roman";
 }
 
 #header {
@@ -347,6 +348,7 @@ body {
   color: white;
   font-family: 'Belwe';
   font-weight: 500;
+  height: fit-content;
   text-shadow:
     0.2vw 0.2vw 0 #000,
     -0.2vw 0.2vw 0 #000,
@@ -381,6 +383,7 @@ body {
   text-align: center;
   color: white;
   font-family: 'Belwe';
+  height: fit-content;
   font-weight: 500;
   text-shadow:
     0.2vw 0.2vw 0 #000,
@@ -405,6 +408,7 @@ body {
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: grayscale;
   position: absolute;
+  height: fit-content;
   width: 10vw;
   margin: 0 auto;
   left: 0;
