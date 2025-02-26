@@ -1,19 +1,27 @@
-import './App.css'
-import healthImg from "./assets/health.png"
-import attackImg from "./assets/attack.png"
-import manaImg from "./assets/mana.png"
-import healthGlowImg from "./assets/healthGlow.png"
-import attackGlowImg from "./assets/attackGlow.png"
-import manaGlowImg from "./assets/manaGlow.png"
-import {useState, useEffect} from "react"
-import getRandomCard from './randomCardGenerator'
-import adjustCard from '../cardAdjuster'
-import isGuessCorrect from './checkIfCorrect'
+// Pictures
 import checkmark from './assets/checkmark.svg'
 import xmark from './assets/x.svg'
 
+//React
+import {useState, useEffect} from "react"
+
+//Functions
+import getRandomCard from './functions/randomCardGenerator'
+import adjustCard from './functions/cardAdjuster.js'
+import isGuessCorrect from './functions/checkIfCorrect'
+
+//DOM
+import handleGuessClickedDOM from "./DOM/handleGuessClickedDOM"
+import handleNewGameClickDOM from "./DOM/handleNewGameDOM"
+
+//Custom Display Components
+import Mana from "./customDisplay/Mana.jsx"
+import Health from "./customDisplay/Health.jsx"
+import Attack from "./customDisplay/Attack.jsx"
+import Gem from "./customDisplay/Gem.jsx"
+
 function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
-    let [cards, setCards] = useState([]);
+    let [cards, setCards] = useState([])
     let [currentCard, setCurrentCard] = useState({})
     let [isCurrentCardWrong, setIsCurrentCardWrong] = useState(false)
     
@@ -35,13 +43,13 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     useEffect (() => {
         if (cards.length > 0) {
             document.querySelector("#newGame").classList.remove("hidden")
+            document.querySelector("#newGame").classList.add("displayBlock")
         }
     }, [cards])
 
-    function applyRandomCard() {
+    async function applyRandomCard() {
         const cardSelected = getRandomCard(cards)
-        document.querySelector("#card").src= `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${cardSelected.id}.png`
-        
+   
         // 66% chance that there is something wrong with card
         const randI = Math.floor(Math.random() * (2 - 0 + 1))
         if (randI === 0) {
@@ -53,96 +61,54 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
             setCurrentCard(adjustedCard)
             setIsCurrentCardWrong(true)
         }
+        
+        document.querySelector("#card").src= `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${cardSelected.id}.png`
+        // below checks for broken images
+        if (document.querySelector("#card").width <= 0 && document.querySelector("#card").height <= 0) {
+            applyRandomCard()
+        }
     }
 
     function handleGuessClicked(e) {
         const isGuessCorrectBool = isGuessCorrect(e, isCurrentCardWrong, currentCard)
-        document.querySelector("#customDisplay").classList.add("hidden")
-        document.querySelector("#nothingWrong").classList.add("hidden")
+        handleGuessClickedDOM(e, isGuessCorrectBool, currentCard, isCurrentCardWrong)
 
         if (isGuessCorrectBool === true) {
             setCurrentScore(currentScore += 1)
-            document.querySelector("#checkmark").classList.remove("hidden")
-
             setTimeout(() => {
                 applyRandomCard()
-                document.querySelector("#nothingWrong").classList.remove("hidden")
-                document.querySelector("#customDisplay").classList.remove("hidden")
-                document.querySelector("#checkmark").classList.add("hidden")
             },"1000")
             return
         }
         else if (isGuessCorrectBool === false){
             if (bestScore < currentScore) {
                 setBestScore(currentScore)
-            }
-            document.querySelector("#xmark").classList.remove("hidden")
-            document.querySelector("#newGame").classList.remove("hidden")
-    
-            if (isCurrentCardWrong === false) {
-                document.querySelector("#reasonForError").textContent = `Card was correct`
-            }
-            else {
-                document.querySelector("#reasonForError").textContent  = 
-                `${capitalizeFirstLetter(currentCard.wrong)} was wrong.`
-            }
+            }            
             return
         }
         console.error("handleGuessClicked Error")
     }
 
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
-
     function handleNewGameClick() {
         applyRandomCard()
-        document.querySelector("#newGame").classList.add("hidden")
-        document.querySelector("#nothingWrong").classList.remove("hidden")
         setCurrentScore(0)
-        document.querySelector("#customDisplay").classList.remove("hidden")
-        document.querySelector("#xmark").classList.add("hidden")
-        document.querySelector("#reasonForError").textContent = ""
+        handleNewGameClickDOM()
     }
     
     return (
         <>
             <div id="cardContainer">
-                    <img id="card"/>
-                    {currentCard.type === "MINION" && 
+                <img id="card"/>
+                {currentCard.type === "MINION" && 
                     (<div id="customDisplay">
-                        <a id="manaNumber"
-                            onMouseEnter={() => document.querySelector("#mana").src = manaGlowImg}
-                            onMouseLeave={() => document.querySelector("#mana").src = manaImg}
-                            onClick={(e) => handleGuessClicked(e)}>
-                        {currentCard.cost}</a>
-                        <img id="mana" 
-                            src={manaImg}
-                            onMouseEnter={(e) => e.target.src=(manaGlowImg)}
-                            onMouseLeave={(e) => e.target.src=(manaImg)}
-                            onClick={(e) => handleGuessClicked(e)}/>
-                
-                        <a id="healthNumber"
-                           onMouseEnter={() => document.querySelector("#health").src = healthGlowImg}
-                           onMouseLeave={() => document.querySelector("#health").src = healthImg}
-                           onClick={(e) => handleGuessClicked(e)}>
-                        {currentCard.health}</a>
-                        <img id="health" 
-                            src={healthImg}
-                            onMouseEnter={(e) => e.target.src=(healthGlowImg)}
-                            onMouseLeave={(e) => e.target.src=(healthImg)}
-                            onClick={(e) => handleGuessClicked(e)}/>
-
-                        <a id="attackNumber"
-                           onMouseEnter={() => document.querySelector("#attack").src = attackGlowImg}
-                           onMouseLeave={() => document.querySelector("#attack").src = attackImg}
-                           onClick={(e) => handleGuessClicked(e)}>
-                        {currentCard.attack}</a>
-                        <img id="attack" 
-                            src={attackImg}
-                            onMouseEnter={(e) => e.target.src=(attackGlowImg)}
-                            onMouseLeave={(e) => e.target.src=(attackImg)}
-                            onClick={(e) => handleGuessClicked(e)}/>
+                        <Mana currentCard={currentCard}
+                              handleGuessClicked={handleGuessClicked}/>
+                        <Health currentCard={currentCard}
+                                handleGuessClicked={handleGuessClicked}/>
+                        <Attack currentCard={currentCard}
+                                handleGuessClicked={handleGuessClicked}/>
+                        <Gem currentCard={currentCard}
+                             handleGuessClicked={handleGuessClicked}/>
                     </div>)}
             </div>
             <button id="newGame"
@@ -157,10 +123,10 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
             </button>
             <img id="checkmark"
                  src={checkmark}
-                 className="hidden"></img>
+                 className="hidden"/>
             <img id="xmark"
                  src={xmark}
-                 className="hidden"></img>
+                 className="hidden"/>
             <div id="reasonForError"></div>
         </>
     )

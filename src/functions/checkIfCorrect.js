@@ -17,6 +17,11 @@ function isGuessCorrect(e, isCurrentCardWrong, currentCard) {
             return true
         }
     }
+    else if (currentCard.wrong === "gem") {
+        if (e.target.id === "gem") {
+            return true
+        }
+    }
     return false
 }
 

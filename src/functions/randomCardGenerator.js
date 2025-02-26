@@ -4,6 +4,7 @@ function getRandomCard(cardsArray) {
       const randI = Math.floor(Math.random() * (cardsArray.length - 0 + 1))
       cardSelected = cardsArray[randI]
     }
+    console.log(cardSelected)
     return cardSelected
   
 }
