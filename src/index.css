@@ -1,13 +1,20 @@
 @font-face {
   font-family: 'Belwe';
   src: url('./fonts/Belwe-Bold.woff2'),
-       url('./fonts/Belwe-Bold.woff') 
+       url('./fonts/Belwe-Bold.woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Franklin Gothic';
   src: url('./fonts/FranklinGothic.woff'),
        url('./fonts/FranklinGothic.woff2')
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -65,7 +72,7 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(-84%, 120%);
+  transform: translate(-85%, 120%);
   cursor: pointer;
   z-index: 4;
   font-size: 7vw;
