@@ -284,29 +284,29 @@ body {
   margin: 0;
   background-color: #131313;
   color: #ffffff;
+  padding: 10px
 }
 
 #header {
+  width: fit-content;
   font-size: 4vw;
-  margin-top: -1.2vw;
+  text-align: left;
+  margin-right: auto;
 }
 
 #currentScore {
   font-size: 2vw;
+  text-align: left;
 }
 
 #bestScore {
   font-size: 1.5vw;
+  text-align: left;
 }
 
 #cardContainer {
   position: relative;
-  top: 0;
-  left: 0;
-  height: 42vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -50px;
+  height: 27.7vw;
 }
 
 #card {
@@ -314,6 +314,7 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
+  transform: translate(0%, -30%);
   width: 30vw;
   pointer-events: none;
 }
@@ -325,16 +326,20 @@ body {
   left: 0;
   right: 0;
   cursor: pointer;
-  transform: translate(-135%, 50%);
+  transform: translate(-135%, -130%);
   z-index: 3;
 }
 
 #manaNumber {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
   position: absolute;
   width: 12vw;
   margin: 0 auto;
   left: -20vw;
-  top: 1.5vw;
+  top: -12.3vw;
+  bottom: 0;
   right: 0;
   cursor: pointer;
   z-index: 4;
@@ -355,18 +360,21 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(117%, 380%);
+  transform: translate(120%, 220%);
   cursor: pointer;
   z-index: 3;
 }
 
 #healthNumber {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
   position: absolute;
   width: 10vw;
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(9.8vw, 32vw);
+  transform: translate(10.1vw, 18.4vw);
   cursor: pointer;
   z-index: 4;
   font-size: 6vw;
@@ -387,18 +395,21 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(-120%, 380%);
+  transform: translate(-120%, 220%);
   cursor: pointer;
   z-index: 3;
 }
 
 #attackNumber {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
   position: absolute;
   width: 10vw;
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(-9.5vw, 32vw);
+  transform: translate(-9.5vw, 18.3vw);
   cursor: pointer;
   z-index: 4;
   font-size: 6vw;
