@@ -332,9 +332,6 @@ body {
 }
 
 #manaNumber {
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: grayscale;
   position: absolute;
   width: fit-content;
   line-height: 7vw;
