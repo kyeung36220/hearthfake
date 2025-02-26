@@ -1,0 +1,217 @@
+@font-face {
+  font-family: 'Belwe';
+  src: url('./fonts/Belwe-Bold.woff2'),
+       url('./fonts/Belwe-Bold.woff') 
+}
+
+@font-face {
+  font-family: 'Franklin Gothic';
+  src: url('./fonts/FranklinGothic.woff'),
+       url('./fonts/FranklinGothic.woff2')
+}
+
+body {
+  margin: 0;
+  background-color: #131313;
+  color: #ffffff;
+}
+
+#header {
+  font-size: 4vw;
+  margin-top: -1.2vw;
+}
+
+#currentScore {
+  font-size: 2vw;
+}
+
+#bestScore {
+  font-size: 1.5vw;
+}
+
+#cardContainer {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 42vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+}
+
+#card {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 30vw;
+  pointer-events: none;
+}
+
+#mana {
+  position: absolute;
+  width: 7.5vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  transform: translate(-135%, 50%);
+  z-index: 3;
+}
+
+#manaNumber {
+  position: absolute;
+  width: 12vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(-84%, 120%);
+  cursor: pointer;
+  z-index: 4;
+  font-size: 7vw;
+  color: white;
+  font-family: 'Belwe';
+  font-weight: 500;
+  text-shadow:
+    0.2vw 0.2vw 0 #000,
+    -0.2vw 0.2vw 0 #000,
+    -0.2vw -0.2vw 0 #000,
+    0.2vw -0.2vw 0 #000;
+}
+
+#health {
+  position: absolute;
+  width: 8.5vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(117%, 380%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+#healthNumber {
+  position: absolute;
+  width: 10vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(10vw, 34.8vw);
+  cursor: pointer;
+  z-index: 4;
+  font-size: 6vw;
+  text-align: center;
+  color: white;
+  font-family: 'Belwe';
+  font-weight: 500;
+  text-shadow:
+    0.2vw 0.2vw 0 #000,
+    -0.2vw 0.2vw 0 #000,
+    -0.2vw -0.2vw 0 #000,
+    0.2vw -0.2vw 0 #000;
+}
+
+#attack {
+  position: absolute;
+  width: 8.5vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(-120%, 380%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+#attackNumber {
+  position: absolute;
+  width: 10vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(-9.5vw, 34.8vw);
+  cursor: pointer;
+  z-index: 4;
+  font-size: 6vw;
+  text-align: center;
+  color: white;
+  font-family: 'Belwe';
+  font-weight: 500;
+  text-shadow:
+    0.2vw 0.2vw 0 #000,
+    -0.2vw 0.2vw 0 #000,
+    -0.2vw -0.2vw 0 #000,
+    0.2vw -0.2vw 0 #000;
+}
+
+#nothingWrong {
+  color: white;
+  background-color: green;
+  border: none;
+  font-size: 2vw;
+  cursor: pointer;
+  padding: 2vh 2vw;
+  border-radius: 10px;
+  font-family: 'Franklin Gothic';
+  height: fit-content;
+  width: fit-content;
+}
+
+#nothingWrong:hover {
+  background-color: rgb(0, 92, 0);
+}
+
+.hidden {
+  display: none
+}
+
+#checkmark {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(0vw, -35vw);
+  z-index: 4;
+  width: 10vw;
+}
+
+#xmark {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(0vw, -35vw);
+  z-index: 4;
+  width: 10vw;
+}
+
+#newGame {
+  color: white;
+  background-color: rgb(184, 0, 0);
+  border: none;
+  font-size: 2vw;
+  cursor: pointer;
+  padding: 2vh 2vw;
+  border-radius: 10px;
+  font-family: 'Franklin Gothic';
+}
+
+#newGame:hover {
+  background-color: rgb(127, 0, 0);
+}
+
+#reasonForError {
+  font-size: 1.5vw;
+  margin-top: 1vh;
+  color: rgb(255, 0, 0);
+  text-align: center;
+  margin-left: 0.5vw;
+  margin-right: auto;
+}
+
+#emblem {
+  width: 132px;    
+  mix-blend-mode: multiply;    
+  top: 0px;    
+  position: absolute; 
+  filter: invert(5%) sepia(10%) saturate(260%) hue-rotate(343deg) brightness(94%) contrast(89%);
+}
