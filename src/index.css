@@ -72,7 +72,8 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(-85%, 120%);
+  transform: translateX(-85%);
+  top: 11%;
   cursor: pointer;
   z-index: 4;
   font-size: 7vw;
@@ -103,7 +104,8 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(10vw, 34.8vw);
+  transform: translateX(10vw);
+  top: 83%;
   cursor: pointer;
   z-index: 4;
   font-size: 6vw;
@@ -135,7 +137,8 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(-9.5vw, 34.8vw);
+  transform: translateX(-9.5vw);
+  top: 83%;
   cursor: pointer;
   z-index: 4;
   font-size: 6vw;
