@@ -22,6 +22,12 @@ function isGuessCorrect(e, isCurrentCardWrong, currentCard) {
             return true
         }
     }
+    else if (currentCard.wrong === "text") {
+        console.log(e)
+        if (e.target.id === "textContainer" || e.target.id === "textContent" || e.target.id === "text" || e.target.offsetParent.id === "textContent") {
+            return true
+        }
+    }
     return false
 }
 

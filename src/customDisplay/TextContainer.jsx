@@ -3,13 +3,19 @@ import textContainerGlow from "../assets/text/textContainerGlow.png"
 
 function TextContainer({currentCard, handleGuessClicked}) {
     
-    const cleanText = currentCard.text.replace("[x]", "").trim().replace("$", "").trim()
+    let cleanText = currentCard.text
+    if (currentCard.collectionText) {
+        cleanText = currentCard.collectionText.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\\n", "<br />")
+    }
+    else if (currentCard.text) {
+        cleanText = currentCard.text.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\n", "<br />").replace("<i>", "<e>").replace("</i>", "</e>")
+    }
     return(<>
         <div id="textContent"
            onMouseEnter={() => document.querySelector("#textContainer").src = textContainerGlow}
            onMouseLeave={() => document.querySelector("#textContainer").src = textContainer}
            onClick={(e) => handleGuessClicked(e)}>
-           <div dangerouslySetInnerHTML={{ __html: cleanText }}></div>
+           <div id="text" dangerouslySetInnerHTML={{ __html: cleanText }}></div>
         </div>
         <img id="textContainer" 
              src={textContainer}

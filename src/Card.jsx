@@ -127,6 +127,8 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                  src={xmark}
                  className="hidden"/>
             <div id="reasonForError"></div>
+            <img id="errorCard"
+                 className="hidde" />
         </>
     )
 }

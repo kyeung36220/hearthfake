@@ -570,8 +570,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #textContent div {
   vertical-align: center;
+}
+
+#errorCard {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(100%, -107%);
+  width: 30vw;
+  pointer-events: none;
 }
