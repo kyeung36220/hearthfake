@@ -10,8 +10,11 @@ function TextContainer({currentCard, handleGuessClicked}) {
     else if (currentCard.text) {
         cleanText = currentCard.text.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\n", "<br />").replace("<i>", "<e>").replace("</i>", "</e>")
     }
+
+    let isCharTooMuch = cleanText.length > 120 ? true : false
+    
     return(<>
-        <div id="textContent"
+        <div id="textContent" className={isCharTooMuch ? `smallSizeText` : `normalSizeText`}
            onMouseEnter={() => document.querySelector("#textContainer").src = textContainerGlow}
            onMouseLeave={() => document.querySelector("#textContainer").src = textContainer}
            onClick={(e) => handleGuessClicked(e)}>

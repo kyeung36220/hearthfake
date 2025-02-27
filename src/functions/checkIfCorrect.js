@@ -23,8 +23,14 @@ function isGuessCorrect(e, isCurrentCardWrong, currentCard) {
         }
     }
     else if (currentCard.wrong === "text") {
-        console.log(e)
         if (e.target.id === "textContainer" || e.target.id === "textContent" || e.target.id === "text" || e.target.offsetParent.id === "textContent") {
+            return true
+        }
+    }
+
+    else if (currentCard.wrong === "race") {
+        const raceContainers = ["raceContent", "raceContainer", "raceText", "dualRaceContent", "dualRaceContainer", "secondRaceText"]
+        if (raceContainers.includes(e.target.id)) {
             return true
         }
     }

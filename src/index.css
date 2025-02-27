@@ -511,7 +511,7 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(7%, 357%);
+  transform: translate(5%, 352%);
   cursor: pointer;
   z-index: 5;
 }
@@ -546,7 +546,7 @@ body {
   z-index: 2;
 }
 
-#textContent {
+.normalSizeText {
   position: absolute;
   height: 12vw;
   width: 23vw;
@@ -573,6 +573,33 @@ body {
   cursor: pointer;
 }
 
+.smallSizeText {
+  position: absolute;
+  height: 12vw;
+  width: 23vw;
+  line-height: 1.6vw;
+  margin: 0 auto;
+  left:  -0.4%;
+  right: 0;
+  top: 45%;
+  cursor: pointer;
+  z-index: 4;
+  font-size: 1.7vw;
+  text-align: center;
+  color: black;
+  font-family: 'Franklin Gothic';
+  -webkit-transform:scale(2,1); /* Safari and Chrome */
+  -moz-transform:scale(2,1); /* Firefox */
+  -ms-transform:scale(2,1); /* IE 9 */
+  -o-transform:scale(2,1); /* Opera */
+  transform:scale(0.9,1); /* W3C */
+  padding: 1.7vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 #textContent div {
   vertical-align: center;
 }
@@ -582,7 +609,137 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transform: translate(100%, -107%);
+  top: 0;
+  transform: translate(100%, -5%);
   width: 30vw;
   pointer-events: none;
+}
+
+#blocker {
+  position: absolute;
+  width: 30vw;
+  height: 40vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(0%, -122.5%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+#raceContainer {
+  position: absolute;
+  width: 14vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translate(0%, 690%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+#raceText {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  line-height: 1.6vw;
+  margin: 0 auto;
+  left: -0.4vw;
+  right: 0;
+  top: 84%;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 1.6vw;
+  text-align: center;
+  color: white;
+  font-family: 'Belwe';
+  font-weight: 900;
+  text-shadow:
+  0.1vw 0.1vw 0 #000,
+    -0.1vw 0.1vw 0 #000,
+    -0.1vw -0.1vw 0 #000,
+    0.1vw -0.1vw 0 #000;
+    -webkit-transform:scale(2,1); /* Safari and Chrome */
+    -moz-transform:scale(2,1); /* Firefox */
+    -ms-transform:scale(2,1); /* IE 9 */
+    -o-transform:scale(2,1); /* Opera */
+    transform:scale(1.05,1); /* W3C */
+}
+
+#dualRaceContent #raceText {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  line-height: 1.5vw;
+  margin: 0 auto;
+  left: 0.2vw;
+  right: 0;
+  top: 83.5%;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 1.5vw;
+  text-align: center;
+  color: white;
+  font-family: 'Belwe';
+  font-weight: 900;
+  text-shadow:
+  0.1vw 0.1vw 0 #000,
+    -0.1vw 0.1vw 0 #000,
+    -0.1vw -0.1vw 0 #000,
+    0.1vw -0.1vw 0 #000;
+    -webkit-transform:scale(2,1); /* Safari and Chrome */
+    -moz-transform:scale(2,1); /* Firefox */
+    -ms-transform:scale(2,1); /* IE 9 */
+    -o-transform:scale(2,1); /* Opera */
+    transform:scale(1.05,1); /* W3C */
+}
+
+#secondRaceText {
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  line-height: 1.5vw;
+  margin: 0 auto;
+  left: 0.2vw;
+  right: 0;
+  top: 89%;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 1.5vw;
+  text-align: center;
+  color: white;
+  font-family: 'Belwe';
+  font-weight: 900;
+  text-shadow:
+  0.1vw 0.1vw 0 #000,
+    -0.1vw 0.1vw 0 #000,
+    -0.1vw -0.1vw 0 #000,
+    0.1vw -0.1vw 0 #000;
+    -webkit-transform:scale(2,1); /* Safari and Chrome */
+    -moz-transform:scale(2,1); /* Firefox */
+    -ms-transform:scale(2,1); /* IE 9 */
+    -o-transform:scale(2,1); /* Opera */
+    transform:scale(1.05,1); /* W3C */
+}
+
+#dualRaceContainer {
+  position: absolute;
+  width: 16vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translate(0%, 504%);
+  cursor: pointer;
+  z-index: 2;
 }

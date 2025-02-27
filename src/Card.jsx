@@ -20,6 +20,7 @@ import Health from "./customDisplay/Health.jsx"
 import Attack from "./customDisplay/Attack.jsx"
 import Gem from "./customDisplay/Gem.jsx"
 import TextContainer from "./customDisplay/TextContainer.jsx"
+import RaceContainer from './customDisplay/RaceContainer.jsx'
 
 function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     let [cards, setCards] = useState([])
@@ -50,6 +51,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
 
     async function applyRandomCard() {
         const cardSelected = getRandomCard(cards)
+        console.log(cardSelected)
    
         // 66% chance that there is something wrong with card
         const randI = Math.floor(Math.random() * (2 - 0 + 1))
@@ -80,7 +82,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
         else if (isGuessCorrectBool === false){
             if (bestScore < currentScore) {
                 setBestScore(currentScore)
-            }            
+            }
             return
         }
         console.error("handleGuessClicked Error")
@@ -108,6 +110,8 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                              handleGuessClicked={handleGuessClicked}/>
                         <TextContainer currentCard={currentCard}
                                        handleGuessClicked={handleGuessClicked}/>
+                        <RaceContainer currentCard={currentCard}
+                                       handleGuessClicked={handleGuessClicked}/>
                     </div>)}
             </div>
             <button id="newGame"
@@ -128,7 +132,9 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                  className="hidden"/>
             <div id="reasonForError"></div>
             <img id="errorCard"
-                 className="hidde" />
+                 className="hidden" />
+            <div id="blocker"
+                 className="hidden"/>
         </>
     )
 }

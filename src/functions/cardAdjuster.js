@@ -1,6 +1,6 @@
 function adjustCard(correctCard) {
-    const thingsThatCanBeWrong = ["cost", "health", "attack", "gem", "text"]
-    // const thingsThatCanBeWrong = ["text"]
+    // const thingsThatCanBeWrong = ["cost", "health", "attack", "gem", "text", "race"]
+    const thingsThatCanBeWrong = ["race"]
 
     const randI = Math.floor(Math.random() * (thingsThatCanBeWrong.length))
 
@@ -18,6 +18,9 @@ function adjustCard(correctCard) {
     }
     else if (thingsThatCanBeWrong[randI] === "text") {
         return adjustText(correctCard)
+    }
+    else if (thingsThatCanBeWrong[randI] === "race") {
+        return adjustRace(correctCard)
     }
 
     console.error("Card not adjusted")
@@ -84,7 +87,6 @@ function adjustText(card) {
                               "<b>Windfury</b>", "<b>Poisonous</b>", "<b>Elusive</b>", "<b>Gigantify</b>"]
     const dependentKeyWords = ["<b>Battlecry:</b>", "<b>Deathrattle:</b>", "<b>Outcast:</b>", "<b>Combo:</b>", "<b>Spellburst:</b>", "<b>Finale:</b>", "<b>Quickdraw:</b>"]
     const handKeyWords = ["<b>Corrupt:</b>", "<b>Finale:</b>", "<b>Quickdraw:</b>", "<b>Forge:</b>"]
-    const bigDudes = ["<b>Colossal</b>", "<b>Titan</b>"]
     const outdatedKillWords = ["<b>Frenzy:</b>", "<b>Overkill:</b>", "<b>Honorable Kill:</b>"]
 
     // in case we roll to adjust text with a card with no text
@@ -102,19 +104,18 @@ function adjustText(card) {
 
     // if is a mech but not have magnetic
     if (card.race === "MECHANICAL" && !card.text.includes("Magnetic")) {
-        possibleChanges.push("addMagnetic")
+        possibleChanges.push({choice: "addMagnetic", current: null})
     }
 
     const words = newCard.text.split(' ')
     for (const word of words) {
-        console.log(word)
         if (solitaryKeyWords.includes(word) && !possibleChanges.includes("changeSolitaryKeyWord")) {
             possibleChanges.push({choice: "changeSolitaryKeyWord", current: word})
         }
         if (solitaryKeyWords.includes(word) && !possibleChanges.includes("removeSolitaryKeyWord")) {
             possibleChanges.push({choice: "removeSolitaryKeyWord", current: word})
         }
-        else if (!isNaN(word) && !possibleChanges.includes("changeNumber")) {
+        else if (!isNaN(parseFloat(word)) && !isNaN(word - 0) && !possibleChanges.includes("changeNumber")) {
             possibleChanges.push({choice: "changeNumber", current: word})
         }
         else if (dependentKeyWords.includes(word) && !possibleChanges.includes("changeDependentKeyWord")) {
@@ -123,7 +124,9 @@ function adjustText(card) {
         else if (handKeyWords.includes(word) && !possibleChanges.includes("changeHandKeyWord")) {
             possibleChanges.push({choice: "changeHandKeyWord", current: word})
         }
-        else if (bigDudes.includes(word) && !possibleChanges.includes("changeBigDude")) {
+
+        const bigDudeRegex = /\b(?:\w*Titan\w*|\w*colossal\w*)\b/i
+        if (bigDudeRegex.test(word) && !possibleChanges.includes("changeBigDude")) {
             possibleChanges.push({choice: "changeBigDude", current: word})
         }
         else if (outdatedKillWords.includes(word) && !possibleChanges.includes("changeOutdatedKillWord")) {
@@ -140,7 +143,7 @@ function adjustText(card) {
     const currentWord = possibleChanges[randI].current
 
     if (randomTextAdjustmentChoice === "addMagnetic") {
-        newCard.text = "<b>Magnetic</b> " + card.text
+        newCard.text = "<b>Magnetic</b>\n" + newCard.text
     }
     else if (randomTextAdjustmentChoice === "changeSolitaryKeyWord") {
         let chosenSolitaryKeyWord = currentWord
@@ -185,12 +188,19 @@ function adjustText(card) {
         newCard.text = newCard.text.replace(currentWord, chosenHandKeyWord)
     }
     else if (randomTextAdjustmentChoice === "changeBigDude") {
-        let chosenBigDudeWord = currentWord
-        while (chosenBigDudeWord === currentWord) {
-            const randI = Math.floor(Math.random() * (bigDudes.length))
-            chosenBigDudeWord = bigDudes[randI]
+
+        let bigDudeRegex = /\b(?:\w*Titan\w*|\w*colossal\w*)\b/i
+
+        let chosenBigDudeWord = currentWord.match(bigDudeRegex)[0] === "Titan" ? `Colossal` : "Titan"
+        if (chosenBigDudeWord === "Colossal") {
+            const rng = Math.floor(Math.random() * (2)) === 0 ? 1 : 2
+            chosenBigDudeWord = `Colossal +${rng}`
         }
-        newCard.text = newCard.text.replace(currentWord, chosenBigDudeWord)
+        else if (chosenBigDudeWord === "Titan") {
+            bigDudeRegex = /Colossal \+\d+/i
+        }
+
+        newCard.text = newCard.text.replace(bigDudeRegex, chosenBigDudeWord)
     }
     else if (randomTextAdjustmentChoice === "changeOutdatedKillWord") {
         let chosenOutdatedKillWord = currentWord
@@ -201,8 +211,53 @@ function adjustText(card) {
         newCard.text = newCard.text.replace(currentWord, chosenOutdatedKillWord)
     }
 
+    if (card.collectionText) {
+        newCard.collectionText = newCard.text
+    }
+
+
     newCard.wrong = 'text'
     return newCard
+
+}
+
+function adjustRace(card) {
+    const newCard = card
+    const races = ["BEAST", "DEMON", "DRAENEI", "DRAGON", "ELEMENTAL", "MECHANICAL", 
+                   "MURLOC", "NAGA", "PIRATE", "QUILBOAR", "TOTEM", "UNDEAD"]
+    
+    // If no race
+    if (!card.races) {
+        const randI = Math.floor(Math.random() * (races.length))
+        newCard.races = [races[randI]]
+        newCard.wrong = 'race'
+        return newCard
+    }
+
+    else if (card.races.length === 1) {
+        const currentRaceArray = card.races
+        let randomRace = currentRaceArray[0]
+        while(currentRaceArray[0] == randomRace) {
+            const randI = Math.floor(Math.random() * (races.length))
+            randomRace = races[randI]
+        }
+        newCard.races[0] = randomRace
+        newCard.wrong = 'race'
+        return newCard
+    }
+
+    else if (card.races.length === 2) {
+        const currentRaceArray = card.races
+        const randomIndex = Math.floor(Math.random() * (2))
+        let randomRace = currentRaceArray[randomIndex]
+        while(currentRaceArray[randomIndex] == randomRace) {
+            const randI = Math.floor(Math.random() * (races.length))
+            randomRace = races[randI]
+        }
+        newCard.races[randomIndex] = randomRace
+        newCard.wrong = 'race'
+        return newCard
+    }
 
 }
 

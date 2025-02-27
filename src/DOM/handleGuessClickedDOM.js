@@ -25,6 +25,8 @@ function handleGuessClickedDOM(e, isGuessCorrectBool,currentCard, isCurrentCardW
         document.querySelector("#errorCard").classList.remove("hidden")
         document.querySelector("#errorCard").src = `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${currentCard.id}.png`
 
+        document.querySelector("#blocker").classList.remove("hidden")
+
         if (isCurrentCardWrong === false) {
             document.querySelector("#reasonForError").textContent = `Card was correct`
         }

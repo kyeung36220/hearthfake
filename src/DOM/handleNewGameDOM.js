@@ -12,6 +12,9 @@ function handleNewGameClickDOM() {
     document.querySelector("#errorCard").classList.add("hidden")
     document.querySelector("#errorCard").src = `#`
 
+    document.querySelector("#blocker").classList.add("hidden")
+
+
     if (document.querySelector("#customDisplay") != null) {
         document.querySelector("#customDisplay").classList.remove("hidden")
     }
