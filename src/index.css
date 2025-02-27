@@ -270,8 +270,8 @@ template {
 
 @font-face {
   font-family: 'Franklin Gothic';
-  src: url('./fonts/FranklinGothic.woff'),
-       url('./fonts/FranklinGothic.woff2')
+  src: url('./fonts/FranklinGothicURWCon-Med.woff'),
+       url('./fonts/FranklinGothicURWCon-Med.woff2')
 }
 
 * {
@@ -363,7 +363,7 @@ body {
   right: 0;
   transform: translate(120%, 220%);
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
 }
 
 #healthNumber {
@@ -378,7 +378,7 @@ body {
   line-height: 6vw;
   transform: translate(10vw, 20.2vw);
   cursor: pointer;
-  z-index: 4;
+  z-index: 5;
   font-size: 6vw;
   text-align: center;
   color: white;
@@ -400,7 +400,7 @@ body {
   right: 0;
   transform: translate(-120%, 220%);
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
 }
 
 #attackNumber {
@@ -416,7 +416,7 @@ body {
   right: 0;
   transform: translate(-9.8vw, 20.2vw);
   cursor: pointer;
-  z-index: 4;
+  z-index: 5;
   font-size: 6vw;
   text-align: center;
   color: white;
@@ -437,11 +437,12 @@ body {
   cursor: pointer;
   padding: 2vh 2vw;
   border-radius: 10px;
-  font-family: 'Franklin Gothic';
+  font-family: 'Times New Roman';
   height: fit-content;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  font-weight: bold;
 }
 
 #nothingWrong:hover {
@@ -484,9 +485,11 @@ body {
   cursor: pointer;
   padding: 2vh 2vw;
   border-radius: 10px;
-  font-family: 'Franklin Gothic';
+  font-family: 'Times New Roman';
+  font-weight: bold;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
 }
 
 #newGame:hover {
@@ -510,7 +513,7 @@ body {
   right: 0;
   transform: translate(7%, 357%);
   cursor: pointer;
-  z-index: 3;
+  z-index: 5;
 }
 
 #legendaryDragon {
@@ -530,4 +533,45 @@ body {
   top: 0px;    
   position: absolute; 
   filter: invert(5%) sepia(10%) saturate(260%) hue-rotate(343deg) brightness(94%) contrast(89%);
+}
+
+#textContainer {
+  position: absolute;
+  width: 21vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(0%, 102%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+#textContent {
+  position: absolute;
+  height: 12vw;
+  width: 23vw;
+  line-height: 2vw;
+  margin: 0 auto;
+  left:  -0.4%;
+  right: 0;
+  top: 45%;
+  cursor: pointer;
+  z-index: 4;
+  font-size: 2vw;
+  text-align: center;
+  color: black;
+  font-family: 'Franklin Gothic';
+  -webkit-transform:scale(2,1); /* Safari and Chrome */
+  -moz-transform:scale(2,1); /* Firefox */
+  -ms-transform:scale(2,1); /* IE 9 */
+  -o-transform:scale(2,1); /* Opera */
+  transform:scale(0.9,1); /* W3C */
+  padding: 1.7vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#textContent div {
+  vertical-align: center;
 }

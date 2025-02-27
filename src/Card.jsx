@@ -19,6 +19,7 @@ import Mana from "./customDisplay/Mana.jsx"
 import Health from "./customDisplay/Health.jsx"
 import Attack from "./customDisplay/Attack.jsx"
 import Gem from "./customDisplay/Gem.jsx"
+import TextContainer from "./customDisplay/TextContainer.jsx"
 
 function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     let [cards, setCards] = useState([])
@@ -63,10 +64,6 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
         }
         
         document.querySelector("#card").src= `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${cardSelected.id}.png`
-        // below checks for broken images
-        if (document.querySelector("#card").width <= 0 && document.querySelector("#card").height <= 0) {
-            applyRandomCard()
-        }
     }
 
     function handleGuessClicked(e) {
@@ -109,6 +106,8 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                                 handleGuessClicked={handleGuessClicked}/>
                         <Gem currentCard={currentCard}
                              handleGuessClicked={handleGuessClicked}/>
+                        <TextContainer currentCard={currentCard}
+                                       handleGuessClicked={handleGuessClicked}/>
                     </div>)}
             </div>
             <button id="newGame"

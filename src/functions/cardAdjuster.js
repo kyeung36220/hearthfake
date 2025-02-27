@@ -14,6 +14,9 @@ function adjustCard(correctCard) {
     else if (thingsThatCanBeWrong[randI] === "gem") {
         return adjustGem(correctCard)
     }
+    else if (thingsThatCanBeWrong[randI] === "text") {
+        return adjustText(correctCard)
+    }
 
     console.error("Card not adjusted")
 }
@@ -69,6 +72,14 @@ function adjustGem(card) {
     newCard.rarity = randomRarity
     newCard.wrong = 'gem'
     return newCard
+}
+
+function adjustText(card) {
+    const newCard = card
+    const possibleChanges = []
+    return
+
+
 }
 
 export default adjustCard
