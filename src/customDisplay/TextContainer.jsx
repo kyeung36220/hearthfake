@@ -11,7 +11,10 @@ function TextContainer({currentCard, handleGuessClicked}) {
         cleanText = currentCard.text.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\n", "<br />").replace("<i>", "<e>").replace("</i>", "</e>")
     }
 
-    let isCharTooMuch = cleanText.length > 120 ? true : false
+    let isCharTooMuch = false
+    if (currentCard.text) {
+        isCharTooMuch = cleanText.length > 100 ? true : false
+    }
     
     return(<>
         <div id="textContent" className={isCharTooMuch ? `smallSizeText` : `normalSizeText`}

@@ -8,32 +8,23 @@ function getRandomCard(cardsArray) {
       cardSelected = cardsArray[randI]
     }
 
-    const temp =  {
-      "artist": "Luke Mancini",
-      "attack": 7,
-      "cardClass": "NEUTRAL",
-      "collectible": true,
-      "cost": 7,
-      "dbfId": 41286,
-      "flavor": "What happens when a dinosaur mixes soda and pop rocks.",
-      "health": 7,
-      "id": "UNG_099",
-      "mechanics": [
-        "BATTLECRY",
-        "CHARGE"
-      ],
-      "name": "Charged Devilsaur",
-      "race": "BEAST",
-      "races": [
-        "ELEMENTAL",
-        "BEAST"
-      ],
-      "rarity": "EPIC",
-      "set": "UNGORO",
-      "text": "\u003Cb\u003ECharge\u003C/b\u003E\n\u003Cb\u003EBattlecry:\u003C/b\u003E Can't attack heroes this turn.",
-      "type": "MINION"
-    }
-    return temp
+    // const temp =  {
+    //   "artist": "Alex Alexandrov",
+    //   "attack": 6,
+    //   "cardClass": "NEUTRAL",
+    //   "collectible": true,
+    //   "cost": 4,
+    //   "dbfId": 40950,
+    //   "flavor": "Hair products are 79% of his monthly budget.",
+    //   "health": 5,
+    //   "id": "CFM_665",
+    //   "name": "Worgen Greaser",
+    //   "rarity": "COMMON",
+    //   "set": "GANGS",
+    //   "type": "MINION"
+    // }
+    // return temp
+    return cardSelected
   
 }
 

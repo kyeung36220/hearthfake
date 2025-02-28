@@ -1,6 +1,6 @@
 function adjustCard(correctCard) {
-    // const thingsThatCanBeWrong = ["cost", "health", "attack", "gem", "text", "race"]
-    const thingsThatCanBeWrong = ["race"]
+    const thingsThatCanBeWrong = ["cost", "health", "attack", "gem", "text", "race"]
+    // const thingsThatCanBeWrong = ["race"]
 
     const randI = Math.floor(Math.random() * (thingsThatCanBeWrong.length))
 
@@ -248,13 +248,22 @@ function adjustRace(card) {
 
     else if (card.races.length === 2) {
         const currentRaceArray = card.races
-        const randomIndex = Math.floor(Math.random() * (2))
-        let randomRace = currentRaceArray[randomIndex]
-        while(currentRaceArray[randomIndex] == randomRace) {
-            const randI = Math.floor(Math.random() * (races.length))
-            randomRace = races[randI]
+        const deleteRng = Math.floor(Math.random() * (2)) === 0 ? true : false
+
+        if (deleteRng) {
+            const randomIndex = Math.floor(Math.random() * (2))
+            newCard.races.splice(randomIndex, 1)
         }
-        newCard.races[randomIndex] = randomRace
+        else {
+            const randomIndex = Math.floor(Math.random() * (2))
+            let randomRace = currentRaceArray[randomIndex]
+            while(currentRaceArray[randomIndex] == randomRace) {
+                const randI = Math.floor(Math.random() * (races.length))
+                randomRace = races[randI]
+            }
+            newCard.races[randomIndex] = randomRace
+        }
+    
         newCard.wrong = 'race'
         return newCard
     }

@@ -363,7 +363,7 @@ body {
   right: 0;
   transform: translate(120%, 220%);
   cursor: pointer;
-  z-index: 4;
+  z-index: 9;
 }
 
 #healthNumber {
@@ -378,7 +378,7 @@ body {
   line-height: 6vw;
   transform: translate(10vw, 20.2vw);
   cursor: pointer;
-  z-index: 5;
+  z-index: 10;
   font-size: 6vw;
   text-align: center;
   color: white;
@@ -400,7 +400,7 @@ body {
   right: 0;
   transform: translate(-120%, 220%);
   cursor: pointer;
-  z-index: 4;
+  z-index: 9;
 }
 
 #attackNumber {
@@ -416,7 +416,7 @@ body {
   right: 0;
   transform: translate(-9.8vw, 20.2vw);
   cursor: pointer;
-  z-index: 5;
+  z-index: 10;
   font-size: 6vw;
   text-align: center;
   color: white;
@@ -513,7 +513,7 @@ body {
   right: 0;
   transform: translate(5%, 352%);
   cursor: pointer;
-  z-index: 5;
+  z-index: 9;
 }
 
 #legendaryDragon {
@@ -525,14 +525,6 @@ body {
   transform: translate(15%, -80%);
   cursor: pointer;
   z-index: 3;
-}
-
-#emblem {
-  width: 132px;    
-  mix-blend-mode: multiply;    
-  top: 0px;    
-  position: absolute; 
-  filter: invert(5%) sepia(10%) saturate(260%) hue-rotate(343deg) brightness(94%) contrast(89%);
 }
 
 #textContainer {
@@ -556,7 +548,7 @@ body {
   right: 0;
   top: 45%;
   cursor: pointer;
-  z-index: 4;
+  z-index: 6;
   font-size: 2vw;
   text-align: center;
   color: black;
@@ -583,7 +575,7 @@ body {
   right: 0;
   top: 45%;
   cursor: pointer;
-  z-index: 4;
+  z-index: 6;
   font-size: 1.7vw;
   text-align: center;
   color: black;
@@ -624,7 +616,7 @@ body {
   right: 0;
   transform: translate(0%, -122.5%);
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
 }
 
 #raceContainer {
@@ -636,7 +628,7 @@ body {
   top: 0;
   transform: translate(0%, 690%);
   cursor: pointer;
-  z-index: 2;
+  z-index: 8;
 }
 
 #raceText {
@@ -652,7 +644,7 @@ body {
   right: 0;
   top: 84%;
   cursor: pointer;
-  z-index: 5;
+  z-index: 9;
   font-size: 1.6vw;
   text-align: center;
   color: white;
@@ -683,7 +675,7 @@ body {
   right: 0;
   top: 83.5%;
   cursor: pointer;
-  z-index: 5;
+  z-index: 9;
   font-size: 1.5vw;
   text-align: center;
   color: white;
@@ -714,7 +706,7 @@ body {
   right: 0;
   top: 89%;
   cursor: pointer;
-  z-index: 5;
+  z-index: 9;
   font-size: 1.5vw;
   text-align: center;
   color: white;
@@ -741,5 +733,20 @@ body {
   top: 0;
   transform: translate(0%, 504%);
   cursor: pointer;
-  z-index: 2;
+  z-index: 8;
+}
+
+#emblem {
+  position: absolute;
+  width: 10vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translate(3%, 135%);
+  cursor: pointer;
+  z-index: 5;
+  mix-blend-mode: multiply;   
+  filter: invert(5%) sepia(10%) saturate(260%) hue-rotate(343deg) brightness(94%) contrast(89%);
+  opacity: 50%;
 }

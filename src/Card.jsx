@@ -21,6 +21,7 @@ import Attack from "./customDisplay/Attack.jsx"
 import Gem from "./customDisplay/Gem.jsx"
 import TextContainer from "./customDisplay/TextContainer.jsx"
 import RaceContainer from './customDisplay/RaceContainer.jsx'
+import Emblem from "./customDisplay/Emblem.jsx"
 
 function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     let [cards, setCards] = useState([])
@@ -51,16 +52,17 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
 
     async function applyRandomCard() {
         const cardSelected = getRandomCard(cards)
-        console.log(cardSelected)
+        console.log(`Original Card: ${JSON.stringify(cardSelected)}`)
    
-        // 66% chance that there is something wrong with card
-        const randI = Math.floor(Math.random() * (2 - 0 + 1))
+        // 80% chance that there is something wrong with card
+        const randI = Math.floor(Math.random() * (5))
         if (randI === 0) {
             setCurrentCard(cardSelected)
             setIsCurrentCardWrong(false)
         }
         else {
             const adjustedCard = adjustCard(cardSelected)
+            console.log(`Adjusted Card: ${JSON.stringify(adjustedCard)}`)
             setCurrentCard(adjustedCard)
             setIsCurrentCardWrong(true)
         }
@@ -112,6 +114,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                                        handleGuessClicked={handleGuessClicked}/>
                         <RaceContainer currentCard={currentCard}
                                        handleGuessClicked={handleGuessClicked}/>
+                        <Emblem currentCard={currentCard}/>
                     </div>)}
             </div>
             <button id="newGame"
