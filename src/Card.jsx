@@ -116,6 +116,18 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                                        handleGuessClicked={handleGuessClicked}/>
                         <Emblem currentCard={currentCard}/>
                     </div>)}
+                {currentCard.type === "SPELL" && 
+                    (<div id="customDisplay">
+                        <Mana currentCard={currentCard}
+                              handleGuessClicked={handleGuessClicked}/>
+                        <Gem currentCard={currentCard}
+                             handleGuessClicked={handleGuessClicked}/>
+                        <TextContainer currentCard={currentCard}
+                                       handleGuessClicked={handleGuessClicked}/>
+                        <RaceContainer currentCard={currentCard}
+                                       handleGuessClicked={handleGuessClicked}/>
+                        <Emblem currentCard={currentCard}/>
+                    </div>)}
             </div>
             <button id="newGame"
                     className="hidden"

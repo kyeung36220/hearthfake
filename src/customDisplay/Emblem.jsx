@@ -38,6 +38,8 @@ import whiz from "../assets/sets/whiz.png"
 import pr from "../assets/sets/pr.png"
 import gdb from "../assets/sets/gdb.png"
 
+import minionStyles from "../styles/minionCard.module.css"
+
 function Emblem({currentCard}) {
 
     const sets = [{name: "LEGACY", image: legacy},
@@ -88,13 +90,15 @@ function Emblem({currentCard}) {
     for (let i = 0; i < sets.length; i++) {
         if (sets[i].name === currentCard.set) {
             return(<img id="emblem"
-                        src={sets[i].image}/>)
+                        src={sets[i].image}
+                        className={minionStyles.emblem}/>)
         }
     }
 
     console.error(`Set image for ${currentCard.set} not found, this app probably needs an update`)
     return(<img id="emblem"
-                src={legacy}/>)
+                src={legacy}
+                className={minionStyles.emblem}/>)
 }
 
 export default Emblem

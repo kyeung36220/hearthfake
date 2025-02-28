@@ -1,5 +1,8 @@
-import textContainer from "../assets/text/textContainer.png"
-import textContainerGlow from "../assets/text/textContainerGlow.png"
+import minionTextContainer from "../assets/text/minion/minionText.png"
+import minionTextContainerGlow from "../assets/text/minion/minionTextGlow.png"
+import spellTextContainer from "../assets/text/spell/spellText.png"
+import spellTextContainerGlow from "../assets/text/spell/spellTextGlow.png"
+import minionStyles from "../styles/minionCard.module.css"
 
 function TextContainer({currentCard, handleGuessClicked}) {
     
@@ -17,17 +20,36 @@ function TextContainer({currentCard, handleGuessClicked}) {
     }
     
     return(<>
-        <div id="textContent" className={isCharTooMuch ? `smallSizeText` : `normalSizeText`}
-           onMouseEnter={() => document.querySelector("#textContainer").src = textContainerGlow}
-           onMouseLeave={() => document.querySelector("#textContainer").src = textContainer}
-           onClick={(e) => handleGuessClicked(e)}>
-           <div id="text" dangerouslySetInnerHTML={{ __html: cleanText }}></div>
-        </div>
-        <img id="textContainer" 
-             src={textContainer}
-             onMouseEnter={(e) => e.target.src=(textContainerGlow)}
-             onMouseLeave={(e) => e.target.src=(textContainer)}
-             onClick={(e) => handleGuessClicked(e)}/>
+        {currentCard.type === "MINION" && (<>
+            <div id="textContent" className={isCharTooMuch ? minionStyles.smallSizeText : 
+                                                             minionStyles.normalSizeText}
+                                  onMouseEnter={() => document.querySelector("#textContainer").src =  minionTextContainerGlow}
+                                  onMouseLeave={() => document.querySelector("#textContainer").src = minionTextContainer}
+                                  onClick={(e) => handleGuessClicked(e)}>
+                <div id="text" dangerouslySetInnerHTML={{ __html: cleanText }}></div>
+            </div>
+            <img id="textContainer" 
+                src={minionTextContainer}
+                onMouseEnter={(e) => e.target.src=( minionTextContainerGlow)}
+                onMouseLeave={(e) => e.target.src=(minionTextContainer)}
+                onClick={(e) => handleGuessClicked(e)}
+                className={minionStyles.textContainer}/>
+        </>)}
+        {currentCard.type === "SPELL" && (<>
+            <div id="textContent" className={isCharTooMuch ? minionStyles.smallSizeText : 
+                                                             minionStyles.normalSizeText}
+                                  onMouseEnter={() => document.querySelector("#textContainer").src =  spellTextContainerGlow}
+                                  onMouseLeave={() => document.querySelector("#textContainer").src = spellTextContainer}
+                                  onClick={(e) => handleGuessClicked(e)}>
+                <div id="text" dangerouslySetInnerHTML={{ __html: cleanText }}></div>
+            </div>
+            <img id="textContainer" 
+                src={spellTextContainer}
+                onMouseEnter={(e) => e.target.src=(spellTextContainerGlow)}
+                onMouseLeave={(e) => e.target.src=(spellTextContainer)}
+                onClick={(e) => handleGuessClicked(e)}
+                className={minionStyles.textContainer}/>
+        </>)}
 
     </>)
 }

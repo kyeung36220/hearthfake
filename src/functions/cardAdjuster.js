@@ -248,22 +248,15 @@ function adjustRace(card) {
 
     else if (card.races.length === 2) {
         const currentRaceArray = card.races
-        const deleteRng = Math.floor(Math.random() * (2)) === 0 ? true : false
+        const randomIndex = Math.floor(Math.random() * (2))
+        let randomRace = currentRaceArray[randomIndex]
 
-        if (deleteRng) {
-            const randomIndex = Math.floor(Math.random() * (2))
-            newCard.races.splice(randomIndex, 1)
+        while(currentRaceArray[randomIndex] == randomRace) {
+            const randI = Math.floor(Math.random() * (races.length))
+            randomRace = races[randI]
         }
-        else {
-            const randomIndex = Math.floor(Math.random() * (2))
-            let randomRace = currentRaceArray[randomIndex]
-            while(currentRaceArray[randomIndex] == randomRace) {
-                const randI = Math.floor(Math.random() * (races.length))
-                randomRace = races[randI]
-            }
-            newCard.races[randomIndex] = randomRace
-        }
-    
+        newCard.races[randomIndex] = randomRace
+
         newCard.wrong = 'race'
         return newCard
     }

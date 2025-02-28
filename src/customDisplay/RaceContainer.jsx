@@ -3,6 +3,7 @@ import dualRaceContainerGlow from "../assets/races/dualRaceContainerGlow.png"
 import singleRaceContainer from "../assets/races/singleRaceContainer.png"
 import singleRaceContainerGlow from "../assets/races/singleRaceContainerGlow.png"
 import capitalizeFirstLetter from "../functions/capFirstLetter"
+import minionStyles from "../styles/minionCard.module.css"
 
 
 function RaceContainer({currentCard, handleGuessClicked}) {
@@ -25,29 +26,42 @@ function RaceContainer({currentCard, handleGuessClicked}) {
         <div id="raceContent"
                    onMouseEnter={() => document.querySelector("#raceContainer").src = singleRaceContainerGlow}
                    onMouseLeave={() => document.querySelector("#raceContainer").src = singleRaceContainer}
-                   onClick={(e) => handleGuessClicked(e)}>
-                   <div id="raceText">{capitalizeFirstLetter(races[0])}</div>
+                   onClick={(e) => handleGuessClicked(e)}
+                   className={minionStyles.raceContent}>
+            <div id="raceText" 
+                className={minionStyles.raceText}>
+                {capitalizeFirstLetter(races[0])}
+            </div>
                 </div>
         <img id="raceContainer" 
                 src={singleRaceContainer}
                 onMouseEnter={(e) => e.target.src=(singleRaceContainerGlow)}
                 onMouseLeave={(e) => e.target.src=(singleRaceContainer)}
-                onClick={(e) => handleGuessClicked(e)}/>
+                onClick={(e) => handleGuessClicked(e)}
+                className={minionStyles.raceContainer}/>
         
         </>)}
         {raceCounter === 2 && (<>
         <div id="dualRaceContent"
                    onMouseEnter={() => document.querySelector("#dualRaceContainer").src = dualRaceContainerGlow}
                    onMouseLeave={() => document.querySelector("#dualRaceContainer").src = dualRaceContainer}
-                   onClick={(e) => handleGuessClicked(e)}>
-                   <div id="raceText">{`${capitalizeFirstLetter(races[0])}`}</div>
-                   <div id="secondRaceText">{`${capitalizeFirstLetter(races[1])}`}</div>
-                </div>
+                   onClick={(e) => handleGuessClicked(e)}
+                   className={minionStyles.dualRaceContent}>
+            <div id="raceText"
+                 className={minionStyles.raceText}>
+                {`${capitalizeFirstLetter(races[0])}`}
+            </div>
+            <div id="secondRaceText"
+                 className={minionStyles.secondRaceText}>
+                {`${capitalizeFirstLetter(races[1])}`}
+            </div>
+        </div>
         <img id="dualRaceContainer" 
                 src={dualRaceContainer}
                 onMouseEnter={(e) => e.target.src=(dualRaceContainerGlow)}
                 onMouseLeave={(e) => e.target.src=(dualRaceContainer)}
-                onClick={(e) => handleGuessClicked(e)}/>
+                onClick={(e) => handleGuessClicked(e)}
+                className={minionStyles.dualRaceContainer}/>
         
         </>)}
     
