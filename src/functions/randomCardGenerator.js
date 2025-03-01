@@ -11,37 +11,29 @@ function getRandomCard(cardsArray) {
     // HERO_SKINS is just the skin for default heros
     while (!validCardTypes.includes(cardSelected.type) || cardSelected.id.startsWith("CORE_ULD") 
            || cardSelected.set === "VANILLA" || cardSelected.id.startsWith("CORE_BOT")
-           || cardSelected.set === "HERO_SKINS") {
+           || cardSelected.set === "HERO_SKINS" || cardSelected.rarity === "FREE") {
       const randI = Math.floor(Math.random() * (cardsArray.length - 0 + 1))
       cardSelected = cardsArray[randI]
     }
 
     //  const debug = {
-    //   "artist": "Anton Zemskov",
-    //   "attack": 3,
-    //   "cardClass": "PALADIN",
-    //   "classes": [
-    //     "PALADIN",
-    //     "PRIEST"
-    //   ],
+    //   "artist": "James Ryman",
+    //   "attack": 6,
+    //   "cardClass": "DEMONHUNTER",
     //   "collectible": true,
-    //   "cost": 4,
-    //   "dbfId": 59587,
+    //   "cost": 6,
+    //   "dbfId": 68061,
     //   "elite": true,
-    //   "flavor": "She's all about hitting the books. Literally.",
+    //   "flavor": "This is what happens when you keep taking the advice of the little demon on your shoulder.",
     //   "health": 6,
-    //   "id": "SCH_141",
+    //   "id": "AV_267",
     //   "mechanics": [
-    //     "SPELLBURST"
+    //     "BATTLECRY"
     //   ],
-    //   "name": "High Abbess Alura",
-    //   "race": "DRAENEI",
-    //   "races": [
-    //     "DRAENEI"
-    //   ],
+    //   "name": "Caria Felsoul",
     //   "rarity": "LEGENDARY",
-    //   "set": "SCHOLOMANCE",
-    //   "text": "\u003Cb\u003E\u003Cb\u003ESpellburst\u003C/b\u003E:\u003C/b\u003E Cast a spell from your deck \u003Ci\u003E(targets this if possible)\u003C/i\u003E.",
+    //   "set": "ALTERAC_VALLEY",
+    //   "text": "\u003Cb\u003EBattlecry:\u003C/b\u003E Transform into a 6/6 copy of a Demon in your deck.",
     //   "type": "MINION"
     // }
     //  return debug
