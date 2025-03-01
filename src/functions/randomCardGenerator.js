@@ -17,25 +17,32 @@ function getRandomCard(cardsArray) {
     }
 
     //  const debug = {
-    //   "armor": 5,
-    //   "artist": "Mooncolony",
-    //   "cardClass": "NEUTRAL",
-    //   "collectible": true,
-    //   "cost": 10,
-    //   "dbfId": 103471,
-    //   "elite": true,
-    //   "flavor": "With an uncertain past and a questionable future, Reno was lucky to find his home on the range.",
-    //   "health": 30,
-    //   "heroPowerDbfId": 103472,
-    //   "id": "WW_0700",
-    //   "mechanics": [
-    //     "BATTLECRY"
+    //   "artist": "Anton Zemskov",
+    //   "attack": 3,
+    //   "cardClass": "PALADIN",
+    //   "classes": [
+    //     "PALADIN",
+    //     "PRIEST"
     //   ],
-    //   "name": "Reno, Lone Ranger",
+    //   "collectible": true,
+    //   "cost": 4,
+    //   "dbfId": 59587,
+    //   "elite": true,
+    //   "flavor": "She's all about hitting the books. Literally.",
+    //   "health": 6,
+    //   "id": "SCH_141",
+    //   "mechanics": [
+    //     "SPELLBURST"
+    //   ],
+    //   "name": "High Abbess Alura",
+    //   "race": "DRAENEI",
+    //   "races": [
+    //     "DRAENEI"
+    //   ],
     //   "rarity": "LEGENDARY",
-    //   "set": "WILD_WEST",
-    //   "text": "[x]\u003Cb\u003EBattlecry:\u003C/b\u003E If your deck\nstarted with no duplicates,\nremove all enemy minions\nfrom the game.",
-    //   "type": "HERO"
+    //   "set": "SCHOLOMANCE",
+    //   "text": "\u003Cb\u003E\u003Cb\u003ESpellburst\u003C/b\u003E:\u003C/b\u003E Cast a spell from your deck \u003Ci\u003E(targets this if possible)\u003C/i\u003E.",
+    //   "type": "MINION"
     // }
     //  return debug
     return cardSelected

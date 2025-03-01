@@ -11,7 +11,7 @@ function adjustCard(correctCard) {
     let cardTypes = [{type: "MINION", attributes: ["cost", "health", "attack", "gem", "text", "race"]},
                      {type: "SPELL", attributes: ["cost", "gem", "text", "spellSchool"]},
                      {type: "WEAPON", attributes: ["cost", "gem", "text", "attack", "durability"]},
-                     {type: "HERO", attributes: ["cost", "gem", "text", "armor"]},
+                     {type: "HERO", attributes: ["cost", "text", "armor"]},
                      {type: "LOCATION", attributes: ["cost", "gem", "text", "locationDurability"]}]
 
     for (let i = 0; i < cardTypes.length; i++) {
