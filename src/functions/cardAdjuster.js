@@ -1,6 +1,26 @@
+import textCleaner from "./textCleaner"
+
 function adjustCard(correctCard) {
-    const thingsThatCanBeWrong = ["cost", "health", "attack", "gem", "text", "race"]
-    // const thingsThatCanBeWrong = ["race"]
+
+    if (correctCard.wrong) {
+        return correctCard
+    }
+
+    let thingsThatCanBeWrong = []
+    
+    let cardTypes = [{type: "MINION", attributes: ["cost", "health", "attack", "gem", "text", "race"]},
+                     {type: "SPELL", attributes: ["cost", "gem", "text", "spellSchool"]},
+                     {type: "WEAPON", attributes: ["cost", "gem", "text", "attack", "durability"]},
+                     {type: "HERO", attributes: ["cost", "gem", "text", "armor"]},
+                     {type: "LOCATION", attributes: ["cost", "gem", "text", "locationDurability"]}]
+
+    for (let i = 0; i < cardTypes.length; i++) {
+        if (cardTypes[i].type === correctCard.type) {
+            thingsThatCanBeWrong = cardTypes[i].attributes
+            break
+        }
+    }
+
 
     const randI = Math.floor(Math.random() * (thingsThatCanBeWrong.length))
 
@@ -21,6 +41,18 @@ function adjustCard(correctCard) {
     }
     else if (thingsThatCanBeWrong[randI] === "race") {
         return adjustRace(correctCard)
+    }
+    else if (thingsThatCanBeWrong[randI] === "spellSchool") {
+        return adjustSpellSchool(correctCard)
+    }
+    else if (thingsThatCanBeWrong[randI] === "durability") {
+        return adjustDurability(correctCard)
+    }
+    else if (thingsThatCanBeWrong[randI] === "locationDurability") {
+        return adjustLocationDurability(correctCard)
+    }
+    else if (thingsThatCanBeWrong[randI] === "armor") {
+        return adjustArmor(correctCard)
     }
 
     console.error("Card not adjusted")
@@ -49,6 +81,45 @@ function adjustHealth(card) {
         newCard.health = newCard.health - 1
     }
     newCard.wrong = 'health'
+    return newCard
+}
+
+function adjustDurability(card) {
+    const newCard = card
+    const randI = Math.floor(Math.random() * (2))
+    if (randI === 0 || newCard.durability === 1) {
+        newCard.durability = newCard.durability + 1
+    }
+    else {
+        newCard.durability = newCard.durability - 1
+    }
+    newCard.wrong = 'durability'
+    return newCard
+}
+
+function adjustLocationDurability(card) {
+    const newCard = card
+    const randI = Math.floor(Math.random() * (2))
+    if (randI === 0 || newCard.health === 1) {
+        newCard.health = newCard.health + 1
+    }
+    else {
+        newCard.health = newCard.health - 1
+    }
+    newCard.wrong = 'locationDurability'
+    return newCard
+}
+
+function adjustArmor(card) {
+    const newCard = card
+    const randI = Math.floor(Math.random() * (2))
+    if (randI === 0 || newCard.armor === 1) {
+        newCard.armor = newCard.armor + 1
+    }
+    else {
+        newCard.armor = newCard.armor - 1
+    }
+    newCard.wrong = 'armor'
     return newCard
 }
 
@@ -97,9 +168,9 @@ function adjustText(card) {
         return newCard
     }
 
-    newCard.text = card.text.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\\n", "<br />").trim()
+    newCard.text = textCleaner(card.text)
     if (card.collectionText) {
-        newCard.text = newCard.collectionText.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\\n", "<br />").trim()
+        newCard.text = textCleaner(newCard.collectionText)
     }
 
     // if is a mech but not have magnetic
@@ -169,7 +240,8 @@ function adjustText(card) {
             newNumber = Number(chosenNumber) - 1
         }
 
-        newCard.text = hasPlusSign ? newCard.text.replace(chosenNumber, `+${newNumber}`) : newCard.text.replace(chosenNumber, newNumber)
+        newCard.text = hasPlusSign ? newCard.text.replace(chosenNumber, `+${newNumber}`) : 
+                                     newCard.text.replace(chosenNumber, newNumber)
     }
     else if (randomTextAdjustmentChoice === "changeDependentKeyWord") {
         let chosenDependentKeyWord = currentWord
@@ -260,7 +332,30 @@ function adjustRace(card) {
         newCard.wrong = 'race'
         return newCard
     }
+}
 
+function adjustSpellSchool(card) {
+    const newCard = card
+    const schools = ["ARCANE", "FIRE", "FROST", "NATURE", "HOLY", "SHADOW", "FEL"]
+
+    if (!card.spellSchool) {
+        const randI = Math.floor(Math.random() * (schools.length))
+        newCard.spellSchool = schools[randI]
+        newCard.wrong = 'spellSchool'
+        return newCard
+    }
+
+    else {
+        const currentSchool = card.spellSchool
+        let randomSchool = currentSchool
+        while(currentSchool == randomSchool) {
+            const randI = Math.floor(Math.random() * (schools.length))
+            randomSchool = schools[randI]
+        }
+        newCard.spellSchool = randomSchool
+        newCard.wrong = 'spellSchool'
+        return newCard
+    }
 }
 
 export default adjustCard

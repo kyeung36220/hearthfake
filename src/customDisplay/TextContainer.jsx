@@ -1,56 +1,76 @@
+import textCleaner from "../functions/textCleaner"
+
 import minionTextContainer from "../assets/text/minion/minionText.png"
 import minionTextContainerGlow from "../assets/text/minion/minionTextGlow.png"
+import minionStyles from "../styles/minionCard.module.css"
+
 import spellTextContainer from "../assets/text/spell/spellText.png"
 import spellTextContainerGlow from "../assets/text/spell/spellTextGlow.png"
-import minionStyles from "../styles/minionCard.module.css"
+import spellStyles from "../styles/spellCard.module.css"
+
+import weaponTextContainer from "../assets/text/weapon/weaponText.png"
+import weaponTextContainerGlow from "../assets/text/weapon/weaponTextGlow.png"
+import weaponStyles from "../styles/weaponCard.module.css"
+
+import heroTextContainer from "../assets/text/hero/heroText.png"
+import heroTextContainerGlow from "../assets/text/hero/heroTextGlow.png"
+import heroStyles from "../styles/heroCard.module.css"
+
+import locationTextContainer from "../assets/text/location/locationText.png"
+import locationTextContainerGlow from "../assets/text/location/locationTextGlow.png"
+import locationStyles from "../styles/locationCard.module.css"
 
 function TextContainer({currentCard, handleGuessClicked}) {
     
     let cleanText = currentCard.text
     if (currentCard.collectionText) {
-        cleanText = currentCard.collectionText.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\\n", "<br />")
+        cleanText = textCleaner(currentCard.collectionText)
     }
     else if (currentCard.text) {
-        cleanText = currentCard.text.replace("[x]", "").trim().replace("$", "").trim().replace("#", "").trim().replace("\n", "<br />").replace("<i>", "<e>").replace("</i>", "</e>")
+        cleanText = textCleaner(currentCard.text)
     }
 
     let isCharTooMuch = false
     if (currentCard.text) {
         isCharTooMuch = cleanText.length > 100 ? true : false
     }
+    if (currentCard.type === "LOCATION" && cleanText.length > 70) {
+        isCharTooMuch = true
+    }
+
+    const cardTypes = [{type: "MINION", style: minionStyles, container: minionTextContainer, containerGlow: minionTextContainerGlow},
+                       {type: "SPELL", style: spellStyles, container: spellTextContainer, containerGlow: spellTextContainerGlow},
+                       {type: "WEAPON", style: weaponStyles, container: weaponTextContainer, containerGlow: weaponTextContainerGlow},
+                       {type: "HERO", style: heroStyles, container: heroTextContainer, containerGlow: heroTextContainerGlow},
+                       {type: "LOCATION", style: locationStyles, container: locationTextContainer, containerGlow: locationTextContainerGlow}]
+
+    let styles
+    let containerImg
+    let containerImgGlow
+    for (let i = 0; i < cardTypes.length; i++) {
+        if (currentCard.type === cardTypes[i].type) {
+            styles = cardTypes[i].style
+            containerImg = cardTypes[i].container
+            containerImgGlow = cardTypes[i].containerGlow
+            break
+        }
+    }
     
     return(<>
-        {currentCard.type === "MINION" && (<>
-            <div id="textContent" className={isCharTooMuch ? minionStyles.smallSizeText : 
-                                                             minionStyles.normalSizeText}
-                                  onMouseEnter={() => document.querySelector("#textContainer").src =  minionTextContainerGlow}
-                                  onMouseLeave={() => document.querySelector("#textContainer").src = minionTextContainer}
+        <>
+            <div id="textContent" className={isCharTooMuch ? styles.smallSizeText : styles.normalSizeText}
+                                  onMouseEnter={() => document.querySelector("#textContainer").src =  containerImgGlow}
+                                  onMouseLeave={() => document.querySelector("#textContainer").src = containerImg}
                                   onClick={(e) => handleGuessClicked(e)}>
                 <div id="text" dangerouslySetInnerHTML={{ __html: cleanText }}></div>
             </div>
             <img id="textContainer" 
-                src={minionTextContainer}
-                onMouseEnter={(e) => e.target.src=( minionTextContainerGlow)}
-                onMouseLeave={(e) => e.target.src=(minionTextContainer)}
+                src={containerImg}
+                onMouseEnter={(e) => e.target.src=(containerImgGlow)}
+                onMouseLeave={(e) => e.target.src=(containerImg)}
                 onClick={(e) => handleGuessClicked(e)}
-                className={minionStyles.textContainer}/>
-        </>)}
-        {currentCard.type === "SPELL" && (<>
-            <div id="textContent" className={isCharTooMuch ? minionStyles.smallSizeText : 
-                                                             minionStyles.normalSizeText}
-                                  onMouseEnter={() => document.querySelector("#textContainer").src =  spellTextContainerGlow}
-                                  onMouseLeave={() => document.querySelector("#textContainer").src = spellTextContainer}
-                                  onClick={(e) => handleGuessClicked(e)}>
-                <div id="text" dangerouslySetInnerHTML={{ __html: cleanText }}></div>
-            </div>
-            <img id="textContainer" 
-                src={spellTextContainer}
-                onMouseEnter={(e) => e.target.src=(spellTextContainerGlow)}
-                onMouseLeave={(e) => e.target.src=(spellTextContainer)}
-                onClick={(e) => handleGuessClicked(e)}
-                className={minionStyles.textContainer}/>
-        </>)}
-
+                className={styles.textContainer}/>
+        </>
     </>)
 }
 

@@ -31,8 +31,13 @@ function handleGuessClickedDOM(e, isGuessCorrectBool,currentCard, isCurrentCardW
             document.querySelector("#reasonForError").textContent = `Card was correct`
         }
         else {
-            document.querySelector("#reasonForError").textContent  = 
-            `${capitalizeFirstLetter(currentCard.wrong)} was wrong.`
+            if (currentCard.wrong === "spellSchool") {
+                document.querySelector("#reasonForError").textContent  = `Spell school was wrong.`
+            }
+            else {
+                document.querySelector("#reasonForError").textContent  = 
+                `${capitalizeFirstLetter(currentCard.wrong)} was wrong.`
+            }
         }
         return
     }

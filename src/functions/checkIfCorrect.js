@@ -27,10 +27,27 @@ function isGuessCorrect(e, isCurrentCardWrong, currentCard) {
             return true
         }
     }
-
     else if (currentCard.wrong === "race") {
         const raceContainers = ["raceContent", "raceContainer", "raceText", "dualRaceContent", "dualRaceContainer", "secondRaceText"]
         if (raceContainers.includes(e.target.id)) {
+            return true
+        }
+    }
+    else if (currentCard.wrong === "spellSchool") {
+        const schoolContainers = ["spellSchoolContainer", "spellSchoolText"]
+        if (schoolContainers.includes(e.target.id)) {
+            return true
+        }
+    }
+    else if (currentCard.wrong === "durability" || currentCard.wrong === "locationDurability") {
+        const containers = ["durabilityNumber", "durability"]
+        if (containers.includes(e.target.id)) {
+            return true
+        }
+    }
+    else if (currentCard.wrong === "armor") {
+        const containers = ["armorNumber", "armor"]
+        if (containers.includes(e.target.id)) {
             return true
         }
     }

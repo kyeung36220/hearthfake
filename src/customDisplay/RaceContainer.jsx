@@ -24,29 +24,29 @@ function RaceContainer({currentCard, handleGuessClicked}) {
     return(<>
         {raceCounter === 1 && (<>
         <div id="raceContent"
-                   onMouseEnter={() => document.querySelector("#raceContainer").src = singleRaceContainerGlow}
-                   onMouseLeave={() => document.querySelector("#raceContainer").src = singleRaceContainer}
-                   onClick={(e) => handleGuessClicked(e)}
-                   className={minionStyles.raceContent}>
+             onMouseEnter={() => document.querySelector("#raceContainer").src = singleRaceContainerGlow}
+             onMouseLeave={() => document.querySelector("#raceContainer").src = singleRaceContainer}
+             onClick={(e) => handleGuessClicked(e)}
+             className={minionStyles.raceContent}>
             <div id="raceText" 
-                className={minionStyles.raceText}>
+                 className={minionStyles.raceText}>
                 {capitalizeFirstLetter(races[0])}
             </div>
                 </div>
         <img id="raceContainer" 
-                src={singleRaceContainer}
-                onMouseEnter={(e) => e.target.src=(singleRaceContainerGlow)}
-                onMouseLeave={(e) => e.target.src=(singleRaceContainer)}
-                onClick={(e) => handleGuessClicked(e)}
-                className={minionStyles.raceContainer}/>
+             src={singleRaceContainer}
+             onMouseEnter={(e) => e.target.src=(singleRaceContainerGlow)}
+             onMouseLeave={(e) => e.target.src=(singleRaceContainer)}
+             onClick={(e) => handleGuessClicked(e)}
+             className={minionStyles.raceContainer}/>
         
         </>)}
         {raceCounter === 2 && (<>
         <div id="dualRaceContent"
-                   onMouseEnter={() => document.querySelector("#dualRaceContainer").src = dualRaceContainerGlow}
-                   onMouseLeave={() => document.querySelector("#dualRaceContainer").src = dualRaceContainer}
-                   onClick={(e) => handleGuessClicked(e)}
-                   className={minionStyles.dualRaceContent}>
+             onMouseEnter={() => document.querySelector("#dualRaceContainer").src = dualRaceContainerGlow}
+             onMouseLeave={() => document.querySelector("#dualRaceContainer").src = dualRaceContainer}
+             onClick={(e) => handleGuessClicked(e)}
+             className={minionStyles.dualRaceContent}>
             <div id="raceText"
                  className={minionStyles.raceText}>
                 {`${capitalizeFirstLetter(races[0])}`}
@@ -57,11 +57,11 @@ function RaceContainer({currentCard, handleGuessClicked}) {
             </div>
         </div>
         <img id="dualRaceContainer" 
-                src={dualRaceContainer}
-                onMouseEnter={(e) => e.target.src=(dualRaceContainerGlow)}
-                onMouseLeave={(e) => e.target.src=(dualRaceContainer)}
-                onClick={(e) => handleGuessClicked(e)}
-                className={minionStyles.dualRaceContainer}/>
+             src={dualRaceContainer}
+             onMouseEnter={(e) => e.target.src=(dualRaceContainerGlow)}
+             onMouseLeave={(e) => e.target.src=(dualRaceContainer)}
+             onClick={(e) => handleGuessClicked(e)}
+             className={minionStyles.dualRaceContainer}/>
         
         </>)}
     

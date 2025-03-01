@@ -1,0 +1,152 @@
+.mana {
+    position: absolute;
+    width: 7.5vw;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    transform: translate(-135%, -130%);
+    z-index: 3;
+  }
+  
+.manaNumber {
+    position: absolute;
+    width: fit-content;
+    line-height: 7vw;
+    margin: 0 auto;
+    left: -20.5vw;
+    top: -10vw;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 4;
+    font-size: 7vw;
+    color: white;
+    font-family: 'Belwe';
+    font-weight: 500;
+    height: fit-content;
+    text-shadow:
+        0.15vw 0.15vw 0 #000,
+        -0.15vw 0.15vw 0 #000,
+        -0.15vw -0.15vw 0 #000,
+        0.15vw -0.15vw 0 #000;
+}
+
+.textContainer {
+  position: absolute;
+  width: 20vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(-1.5%, 95%);
+  cursor: pointer;
+  z-index: 2;
+}
+  
+.normalSizeText {
+    position: absolute;
+    height: 12vw;
+    width: 23vw;
+    line-height: 2vw;
+    margin: 0 auto;
+    left:  -0.4%;
+    right: 0;
+    top: 43%;
+    cursor: pointer;
+    z-index: 6;
+    font-size: 2vw;
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic';
+    -webkit-transform:scale(2,1); /* Safari and Chrome */
+    -moz-transform:scale(2,1); /* Firefox */
+    -ms-transform:scale(2,1); /* IE 9 */
+    -o-transform:scale(2,1); /* Opera */
+    transform:scale(0.9,1); /* W3C */
+    padding: 1.7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.smallSizeText {
+    position: absolute;
+    height: 12vw;
+    width: 23vw;
+    line-height: 1.6vw;
+    margin: 0 auto;
+    left:  -0.4%;
+    right: 0;
+    top: 43%;
+    cursor: pointer;
+    z-index: 6;
+    font-size: 1.7vw;
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic';
+    -webkit-transform:scale(2,1); /* Safari and Chrome */
+    -moz-transform:scale(2,1); /* Firefox */
+    -ms-transform:scale(2,1); /* IE 9 */
+    -o-transform:scale(2,1); /* Opera */
+    transform:scale(0.9,1); /* W3C */
+    padding: 1.7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.emblem {
+    position: absolute;
+    width: 10vw;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translate(-3%, 132%);
+    cursor: pointer;
+    z-index: 5;
+    mix-blend-mode: multiply;   
+    filter: invert(5%) sepia(10%) saturate(260%) hue-rotate(343deg) brightness(94%) contrast(89%);
+    opacity: 50%;
+}
+
+.armor {
+    position: absolute;
+    width: 6.5vw;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    transform: translate(155%, 260%);
+    cursor: pointer;
+    z-index: 9;
+}
+
+.armorNumber {
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    width: fit-content;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    line-height: 6vw;
+    transform: translate(10vw, 20.2vw);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 6vw;
+    text-align: center;
+    color: white;
+    font-family: 'Belwe';
+    height: fit-content;
+    font-weight: 900;
+    text-shadow:
+        0.15vw 0.15vw 0 #000,
+        -0.15vw 0.15vw 0 #000,
+        -0.15vw -0.15vw 0 #000,
+        0.15vw -0.15vw 0 #000;
+}
+
+

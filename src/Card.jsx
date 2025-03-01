@@ -21,7 +21,11 @@ import Attack from "./customDisplay/Attack.jsx"
 import Gem from "./customDisplay/Gem.jsx"
 import TextContainer from "./customDisplay/TextContainer.jsx"
 import RaceContainer from './customDisplay/RaceContainer.jsx'
+import SpellSchoolContainer from './customDisplay/SpellSchoolContainer.jsx'
 import Emblem from "./customDisplay/Emblem.jsx"
+import WeaponAttack from "./customDisplay/WeaponAttack.jsx"
+import Durability from "./customDisplay/Durability.jsx"
+import Armor from "./customDisplay/Armor.jsx"
 
 function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     let [cards, setCards] = useState([])
@@ -53,7 +57,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     async function applyRandomCard() {
         const cardSelected = getRandomCard(cards)
         console.log(`Original Card: ${JSON.stringify(cardSelected)}`)
-   
+
         // 80% chance that there is something wrong with card
         const randI = Math.floor(Math.random() * (5))
         if (randI === 0) {
@@ -67,7 +71,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
             setIsCurrentCardWrong(true)
         }
         
-        document.querySelector("#card").src= `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${cardSelected.id}.png`
+        document.querySelector(".card").src= `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${cardSelected.id}.png`
     }
 
     function handleGuessClicked(e) {
@@ -99,7 +103,8 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     return (
         <>
             <div id="cardContainer">
-                <img id="card"/>
+                <img id={currentCard.type === "HERO" ? "heroCard" : "card"}
+                     className="card"/>
                 {currentCard.type === "MINION" && 
                     (<div id="customDisplay">
                         <Mana currentCard={currentCard}
@@ -124,9 +129,46 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                              handleGuessClicked={handleGuessClicked}/>
                         <TextContainer currentCard={currentCard}
                                        handleGuessClicked={handleGuessClicked}/>
-                        <RaceContainer currentCard={currentCard}
+                        <SpellSchoolContainer currentCard={currentCard}
+                                              handleGuessClicked={handleGuessClicked}/>
+                        <Emblem currentCard={currentCard}/>
+                    </div>)}
+                {currentCard.type === "WEAPON" && 
+                    (<div id="customDisplay">
+                        <Mana currentCard={currentCard}
+                              handleGuessClicked={handleGuessClicked}/>
+                        <Gem currentCard={currentCard}
+                             handleGuessClicked={handleGuessClicked}/>
+                        <WeaponAttack currentCard={currentCard}
+                                      handleGuessClicked={handleGuessClicked}/>
+                        <Durability currentCard={currentCard}
+                                    handleGuessClicked={handleGuessClicked}/>
+                        <TextContainer currentCard={currentCard}
                                        handleGuessClicked={handleGuessClicked}/>
                         <Emblem currentCard={currentCard}/>
+                    </div>)}
+                
+                {currentCard.type === "HERO" && 
+                    (<div id="customDisplay"> 
+                        <Mana currentCard={currentCard}
+                              handleGuessClicked={handleGuessClicked}/>
+                        <TextContainer currentCard={currentCard}
+                                       handleGuessClicked={handleGuessClicked}/>
+                        <Emblem currentCard={currentCard}/>
+                        <Armor currentCard={currentCard}
+                               handleGuessClicked={handleGuessClicked}/>
+                    </div>)}
+                {currentCard.type === "LOCATION" && 
+                    (<div id="customDisplay">
+                        <Mana currentCard={currentCard}
+                              handleGuessClicked={handleGuessClicked}/>
+                        <Gem currentCard={currentCard}
+                             handleGuessClicked={handleGuessClicked}/>
+                        <TextContainer currentCard={currentCard}
+                                       handleGuessClicked={handleGuessClicked}/>
+                        <Emblem currentCard={currentCard}/>
+                        <Durability currentCard={currentCard}
+                                    handleGuessClicked={handleGuessClicked}/>
                     </div>)}
             </div>
             <button id="newGame"
@@ -147,7 +189,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
                  className="hidden"/>
             <div id="reasonForError"></div>
             <img id="errorCard"
-                 className="hidden" />
+                 className={`"hidden" ${currentCard.type === "HERO" ? "hero" : ""}`} />
             <div id="blocker"
                  className="hidden"/>
         </>

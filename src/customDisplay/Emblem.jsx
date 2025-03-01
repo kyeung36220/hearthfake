@@ -39,6 +39,10 @@ import pr from "../assets/sets/pr.png"
 import gdb from "../assets/sets/gdb.png"
 
 import minionStyles from "../styles/minionCard.module.css"
+import spellStyles from "../styles/spellCard.module.css"
+import weaponStyles from "../styles/weaponCard.module.css"
+import heroStyles from "../styles/heroCard.module.css"
+import locationStyles from "../styles/locationCard.module.css"
 
 function Emblem({currentCard}) {
 
@@ -84,21 +88,34 @@ function Emblem({currentCard}) {
                   {name: "EVENT", image: event},
                   {name: "WHIZBANGS_WORKSHOP", image: whiz},
                   {name: "ISLAND_VACATION", image: pr},
-                  {name: "SPACE", image: gdb}
-    ]
+                  {name: "SPACE", image: gdb},]
+
+    const stylesArray = [{type: "MINION", style: minionStyles},
+                         {type: "SPELL", style: spellStyles},
+                         {type: "WEAPON", style: weaponStyles},
+                         {type: "HERO", style: heroStyles},
+                         {type: "LOCATION", style: locationStyles}]
+    
+    let styles
+    for (let i = 0; i < stylesArray.length; i++) {
+        if (stylesArray[i].type === currentCard.type) {
+            styles = stylesArray[i].style
+            break
+        }
+    }
 
     for (let i = 0; i < sets.length; i++) {
         if (sets[i].name === currentCard.set) {
             return(<img id="emblem"
                         src={sets[i].image}
-                        className={minionStyles.emblem}/>)
+                        className={styles.emblem}/>)
         }
     }
 
     console.error(`Set image for ${currentCard.set} not found, this app probably needs an update`)
     return(<img id="emblem"
                 src={legacy}
-                className={minionStyles.emblem}/>)
+                className={styles.emblem}/>)
 }
 
 export default Emblem

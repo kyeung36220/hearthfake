@@ -15,7 +15,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 
@@ -321,6 +320,17 @@ body {
   pointer-events: none;
 }
 
+#heroCard {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(-3%, -36%);
+  width: 30vw;
+  pointer-events: none;
+}
+
+
 #nothingWrong {
   color: white;
   background-color: green;
@@ -408,6 +418,17 @@ body {
   pointer-events: none;
 }
 
+#errorCard.hero {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translate(100%, -5%);
+  width: 30vw;
+  pointer-events: none;
+}
+
 #blocker {
   position: absolute;
   width: 30vw;
@@ -416,7 +437,6 @@ body {
   left: 0;
   right: 0;
   transform: translate(0%, -122.5%);
-  cursor: pointer;
   z-index: 100;
 }
 
