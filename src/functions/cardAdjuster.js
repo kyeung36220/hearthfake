@@ -309,7 +309,7 @@ function adjustRace(card) {
     else if (card.races.length === 1) {
         const currentRaceArray = card.races
         let randomRace = currentRaceArray[0]
-        while(currentRaceArray[0] == randomRace) {
+        while(currentRaceArray[0] === randomRace) {
             const randI = Math.floor(Math.random() * (races.length))
             randomRace = races[randI]
         }
@@ -323,7 +323,8 @@ function adjustRace(card) {
         const randomIndex = Math.floor(Math.random() * (2))
         let randomRace = currentRaceArray[randomIndex]
 
-        while(currentRaceArray[randomIndex] == randomRace) {
+        // prevents duplicated races
+        while(currentRaceArray[0] == randomRace || currentRaceArray[1] == randomRace) {
             const randI = Math.floor(Math.random() * (races.length))
             randomRace = races[randI]
         }
