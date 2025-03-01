@@ -32,7 +32,7 @@ function TextContainer({currentCard, handleGuessClicked}) {
 
     let isCharTooMuch = false
     if (currentCard.text) {
-        isCharTooMuch = cleanText.length > 100 ? true : false
+        isCharTooMuch = cleanText.length > 90 ? true : false
     }
     if (currentCard.type === "LOCATION" && cleanText.length > 70) {
         isCharTooMuch = true

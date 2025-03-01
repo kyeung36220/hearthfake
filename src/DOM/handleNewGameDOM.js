@@ -12,6 +12,9 @@ function handleNewGameClickDOM() {
     document.querySelector("#errorCard").classList.add("hidden")
     document.querySelector("#errorCard").src = `#`
 
+    document.querySelector("#questionText").classList.add("hidden")
+    document.querySelector("#rightArrow").classList.add("hidden")
+
     document.querySelector("#blocker").classList.add("hidden")
 
 

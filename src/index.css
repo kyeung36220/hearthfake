@@ -23,9 +23,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-ol, ul {
-	list-style: none;
-}
 blockquote, q {
 	quotes: none;
 }
@@ -460,9 +457,79 @@ body {
   font-family: "Times New Roman";
 }
 
+#questionText {
+  font-size: 1vw;
+}
+
+#rightArrow {
+  height: 2vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5970%) hue-rotate(70deg) brightness(102%) contrast(102%);
+}
+
 #question {
   height: 2vw;
-  margin-top: 1vw;
   cursor: pointer;
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5970%) hue-rotate(70deg) brightness(102%) contrast(102%);
+}
+
+#questionContainer {
+  display: flex;
+  align-items: center;
+}
+
+#tutorialContainer {
+  position: absolute;
+  margin: auto auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  width: 50%;
+  height: 43vw;
+  border-radius: 20px;
+  font-size: 0.95vw;
+  padding: 1.5vw 3vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -1.3vw;
+}
+
+#tutorialContainer .ulHeader {
+  margin-top: 1vw;
+  font-size: 1.1vw;
+  margin-left: -1vw;
+}
+
+#tutorialContainer .header {
+  font-size: 1.1vw;
+}
+
+.hidden {
+  display: none;
+}
+
+#tutorialContainer button {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  height: 3vw;
+  border-style: none;
+  width: 10vw;
+  border-radius: 20px;
+  margin: auto;
+  z-index: 20;
+}
+
+#tutorialContainer button:hover {
+  background-color: rgb(121, 0, 0);
 }

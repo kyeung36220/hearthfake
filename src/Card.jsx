@@ -56,7 +56,6 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
 
     async function applyRandomCard() {
         const cardSelected = getRandomCard(cards)
-        console.log(`Original Card: ${JSON.stringify(cardSelected)}`)
 
         // 80% chance that there is something wrong with card
         const randI = Math.floor(Math.random() * (5))
@@ -66,7 +65,6 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
         }
         else {
             const adjustedCard = adjustCard(cardSelected)
-            console.log(`Adjusted Card: ${JSON.stringify(adjustedCard)}`)
             setCurrentCard(adjustedCard)
             setIsCurrentCardWrong(true)
         }
