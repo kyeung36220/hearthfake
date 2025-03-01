@@ -35,7 +35,9 @@ const App = () => {
 
       <div id="tutorialContainer" className="hidden">
         <b className="center header">Welcome to Hearthfake!</b><br/>
-        <span className="center">Inspired by Rarran's Do You Know Hearthstone? series, this game challenges you to spot errors on Hearthstone cards.</span> <br/>
+        <span className="center">Inspired by&nbsp;         
+          <a href="https://www.youtube.com/playlist?list=PLbWetr69v7tlIa6x6n_k7OCwdmZ3YPzDj" target="_blank" rel="noopener noreferrer">Rarran's Do You Know Hearthstone? series</a>
+          , this game challenges you to spot errors on Hearthstone cards.</span> <br/>
         <b className="center header">How to Play:</b><br/>
         <span className="center">Your goal is to determine if a card has any mistakes. If it does, identify what’s wrong!</span> <br/>
         <b className="ulHeader">Possible Errors:</b>

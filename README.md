@@ -1,8 +1,26 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Heartfake
 
-Currently, two official plugins are available:
+Inspired by [Rarran's Do You Know Hearthstone?](https://www.youtube.com/playlist?list=PLbWetr69v7tlIa6x6n_k7OCwdmZ3YPzDj) series, this game challenges you to spot errors on Hearthstone cards.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Play:
+
+Your goal is to determine if a card has any mistakes. If it does, identify what’s wrong!
+
+## Possible Errors:
+- Cost (Mana cost)
+- Health
+- Attack (Weapon and Minion)
+- Gem (Rarity) Except Heroes
+- Text
+- Race (Minion type)
+- Spell School
+- Durability (Weapon and Location)
+## Things That Are Always Correct:
+- Card Class (Ex. Whether it is a Paladin Card or a Warrior Card)
+- Text Formatting (Punctuation and spacing)
+- Card Image
+- Card Name
+- Card Emblem (Ex. Whether card was released in TGT or Naxx)
+
+Good luck, and may your knowledge of Hearthstone be strong!

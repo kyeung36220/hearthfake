@@ -410,7 +410,7 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  transform: translate(100%, 1%);
+  transform: translate(100%, 0%);
   width: 30vw;
   pointer-events: none;
 }
@@ -532,4 +532,11 @@ body {
 
 #tutorialContainer button:hover {
   background-color: rgb(121, 0, 0);
+}
+
+a:link    { 
+  color: white;
+}
+a:visited { 
+  color: white; 
 }
