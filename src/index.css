@@ -260,14 +260,20 @@ template {
 @font-face {
   font-family: 'Belwe';
   src: url('./fonts/Belwe-Medium.woff2') format('woff2'),
-       url('./fonts/Belwe-Medium.woff') format('woff');
+       url('./fonts/Belwe-Medium.woff') format('woff'),
+       url('./fonts/Belwe-Medium.ttf') format('ttf'),
+       url('./fonts/Belwe-Medium.eot') format('eot'),
+       url('./fonts/Belwe-Medium.otf') format('otf');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Franklin Gothic';
-  src: url('./fonts/FranklinGothicURWCon-Med.woff'),
-       url('./fonts/FranklinGothicURWCon-Med.woff2')
+  src: url('./fonts/FranklinGothicURWCon-Med.woff') format('woff'),
+       url('./fonts/FranklinGothicURWCon-Med.woff2') format('woff2'),
+       url('./fonts/FranklinGothicURWCon-Med.eot') format('eot'),
+       url('./fonts/FranklinGothicURWCon-Med.ttf') format('ttf'),
+       url('./fonts/FranklinGothicURWCon-Med.otf') format('otf'),
 }
 
 * {
