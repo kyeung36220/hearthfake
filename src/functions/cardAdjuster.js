@@ -60,6 +60,11 @@ function adjustCard(correctCard) {
 }
 
 function adjustCost(card) {
+
+    if (card.hideStats) {
+        return adjustSpellSchool(card)
+    }
+
     const newCard = card
     const randI = Math.floor(Math.random() * (2))
     if (randI === 0 || newCard.cost === 0 || newCard.cost === 1) {

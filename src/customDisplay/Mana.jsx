@@ -11,6 +11,7 @@ function Mana( {currentCard, handleGuessClicked} ) {
         styles = heroStyles
     }
     return (<>
+        {!currentCard.hideStats && (<>
         <a id="manaNumber"
             onMouseEnter={() => document.querySelector("#mana").src = manaGlowImg}
             onMouseLeave={() => document.querySelector("#mana").src = manaImg}
@@ -23,6 +24,7 @@ function Mana( {currentCard, handleGuessClicked} ) {
             onMouseLeave={(e) => e.target.src=(manaImg)}
             onClick={(e) => handleGuessClicked(e)}
             className={styles.mana}/> 
+        </>)}
     </>)
 }
 
