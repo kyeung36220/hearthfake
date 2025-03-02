@@ -10,7 +10,7 @@ const App = () => {
 
   const fullExpansionsArray = [  
     {name: "CORE", display: "Core", available: true},
-    {name: "VANILLA", display: "Legacy", available: true},
+    {name: "EXPERT1", display: "Legacy", available: true},
     {name: "NAXX", display: "Curse of Naxxramas", available: true},
     {name: "GVG", display: "Goblins vs Gnomes", available: true},
     {name: "BRM", display: "Blackrock Mountain", available: true},

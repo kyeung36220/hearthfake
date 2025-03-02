@@ -105,7 +105,6 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore, availabl
                 return true
             }
         }
-        availableExpansions
         return false
     }
     

@@ -1,5 +1,3 @@
-import {useState} from "react"
-
 function ExpansionChooseList({availableExpansions, setAvailableExpansions}) {
            
     return (
@@ -45,7 +43,7 @@ function ExpansionChooseList({availableExpansions, setAvailableExpansions}) {
         }
         setAvailableExpansions(newExpansionsArray)
         localStorage.setItem("expansionsArray", JSON.stringify(newExpansionsArray))
-        window.location.reload()
+        window.location.reload() // reload is the only way I know to reset checkboxes
     }
 }
 
