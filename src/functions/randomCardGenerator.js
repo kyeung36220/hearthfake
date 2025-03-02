@@ -16,7 +16,8 @@ function getRandomCard(cardsArray, availableExpansions) {
            || cardSelected.set === "VANILLA" && cardSelected.type === "SPELL" 
            || cardSelected.set === "HERO_SKINS" 
            || cardSelected.set === "PLACEHOLDER_202204"
-           || cardSelected.set === "CORE" && cardSelected.name.endsWith("Spellstone")){
+           || cardSelected.set === "CORE" && cardSelected.name.endsWith("Spellstone")
+           || !cardSelected.collectionText && /\{0}/.test(cardSelected.text)){
       const randI = Math.floor(Math.random() * (cardsArray.length - 0 + 1))
       cardSelected = cardsArray[randI]
     }
@@ -31,28 +32,29 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Nicola Saviori",
-    //   "attack": 6,
-    //   "cardClass": "DRUID",
+    //   "artist": "Ian Ameling",
+    //   "attack": 1,
+    //   "cardClass": "ROGUE",
     //   "collectible": true,
-    //   "collectionText": "\u003Cb\u003EChoose One -\u003C/b\u003E {0}; or {1}.",
-    //   "cost": 5,
-    //   "dbfId": 110940,
-    //   "elite": true,
-    //   "flavor": "Uluu is such a tryhard, he's carrying an entire planet!",
-    //   "health": 5,
-    //   "id": "GDB_854",
-    //   "name": "Uluu, the Everdrifter",
-    //   "race": "BEAST",
+    //   "cost": 3,
+    //   "dbfId": 86483,
+    //   "flavor": "To defend Naxxramas from the oncoming adventurers, the Scourge created a monstrosity the world had never seen before: an abomination wearing clothes!!",
+    //   "health": 1,
+    //   "id": "NX2_005",
+    //   "isMiniSet": true,
+    //   "mechanics": [
+    //     "COMBO",
+    //     "INFUSE",
+    //     "MANATHIRST"
+    //   ],
+    //   "name": "Stitched Creation",
+    //   "race": "UNDEAD",
     //   "races": [
-    //     "BEAST"
+    //     "UNDEAD"
     //   ],
-    //   "rarity": "LEGENDARY",
-    //   "referencedTags": [
-    //     "CHOOSE_ONE"
-    //   ],
-    //   "set": "SPACE",
-    //   "text": "[x]Each turn this is in your\nhand, gain two random\n\u003Cb\u003EChoose One\u003C/b\u003E choices.",
+    //   "rarity": "RARE",
+    //   "set": "RETURN_OF_THE_LICH_KING",
+    //   "text": "\u003Cb\u003ECombo:\u003C/b\u003E Gain +2/+2.\n\u003Cb\u003EInfuse ({0}):\u003C/b\u003E Gain +3/+3. \u003Cb\u003EManathirst ({1}):\u003C/b\u003E Gain +4/+4.",
     //   "type": "MINION"
     // }
     // return debug
