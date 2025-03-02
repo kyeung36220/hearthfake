@@ -318,6 +318,7 @@ body {
   margin: 0 auto;
   left: 0;
   right: 0;
+  top: 0;
   transform: translate(0%, -30%);
   width: 30vw;
   pointer-events: none;
@@ -340,7 +341,7 @@ body {
   border: none;
   font-size: 2vw;
   cursor: pointer;
-  padding: 2vh 2vw;
+  padding: 1vw 2vw;
   border-radius: 10px;
   font-family: 'Times New Roman';
   height: fit-content;
@@ -388,7 +389,7 @@ body {
   border: none;
   font-size: 2vw;
   cursor: pointer;
-  padding: 2vh 2vw;
+  padding: 1vw 2vw;
   border-radius: 10px;
   font-family: 'Times New Roman';
   font-weight: bold;
@@ -403,7 +404,7 @@ body {
 
 #reasonForError {
   font-size: 1.5vw;
-  margin-top: 1vh;
+  margin-top: 0.5vw;
   color: rgb(255, 0, 0);
   text-align: center;
   margin-left: auto;
@@ -416,7 +417,7 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  transform: translate(100%, 0%);
+  transform: translate(100%, 5%);
   width: 30vw;
   pointer-events: none;
 }
@@ -445,7 +446,7 @@ body {
 
 #signature {
   position: absolute;
-  bottom: 1vw;
+  bottom: -5vw;
   right: 2vw;
   display: flex;
   justify-content: center;
@@ -467,7 +468,7 @@ body {
   font-size: 1vw;
 }
 
-#rightArrow {
+#questionRightArrow {
   height: 2vw;
   margin-left: 1vw;
   margin-right: 1vw;
@@ -545,4 +546,80 @@ a:link    {
 }
 a:visited { 
   color: white; 
+}
+
+.expansionCell {
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  width: 14vw;
+  height: 1vw;
+}
+
+#expansionsScreen {
+  position: absolute;
+  left: 15%;
+  right: 50%;
+  top: 5%;
+  bottom: 0;
+  background-color: black;
+  width: 70%;
+  height: 43vw;
+  border-radius: 20px;
+  padding: 1.5vw 3vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+#expansionsScreen .header {
+  font-size: 1.5vw;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1vw;
+}
+
+#expansionsScreen button {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  height: 3vw;
+  border-style: none;
+  width: 10vw;
+  border-radius: 20px;
+  margin: auto;
+  z-index: 20;
+  font-size: 1vw;
+}
+
+#expansionsScreen input {
+  width: 1vw;
+  margin-right: 0.3vw;
+}
+
+#expansionsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  z-index: 20;
+  height: 30vw;
+}
+
+#bookTextContainer {
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  margin-top: 1vw;
+}
+
+#book {
+  height: 2vw;
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5970%) hue-rotate(70deg) brightness(102%) contrast(102%);
+}
+
+#bookRightArrow {
+  height: 2vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(5970%) hue-rotate(70deg) brightness(102%) contrast(102%);
 }

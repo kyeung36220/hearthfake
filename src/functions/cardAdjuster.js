@@ -126,7 +126,7 @@ function adjustArmor(card) {
 function adjustAttack(card) {
     const newCard = card
     const randI = Math.floor(Math.random() * (2))
-    if (randI === 0 || newCard.attack === 0) {
+    if (randI === 0 || newCard.attack === 0 || newCard.attack === 1) {
         newCard.attack = newCard.attack + 1
     }
     else {
@@ -141,7 +141,7 @@ function adjustGem(card) {
     const currentRarity = card.rarity
 
     // preventing legendary from being changed to rare (Currently no way to remove dragon so this will have to do)
-    if (currentRarity === "LEGENDARY") {
+    if (currentRarity === "LEGENDARY" || currentRarity === "FREE") {
         return adjustText(card)
     }
 

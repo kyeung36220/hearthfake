@@ -1,44 +1,57 @@
-function getRandomCard(cardsArray) {
+function getRandomCard(cardsArray, availableExpansions) {
     let cardSelected = {}
 
     const validCardTypes = ["WEAPON", "MINION", "SPELL", "HERO", "LOCATION"]
 
     // CORE_ULD images are broken
-    // Vanilla set has some issues with spell schools
     // CORE_BOT has some broken images
+    // Vanilla set has some issues with spell schools
     // HERO_SKINS is just the skin for default heros
-    while (!validCardTypes.includes(cardSelected.type) || cardSelected.id.startsWith("CORE_ULD") 
-           || cardSelected.set === "VANILLA" || cardSelected.id.startsWith("CORE_BOT")
-           || cardSelected.set === "HERO_SKINS" || cardSelected.rarity === "FREE") {
+    // PLACEHOLDER_202204 are dupes
+    // CORE spellstones collection text is wrong
+    while (!validCardTypes.includes(cardSelected.type) 
+           || inExpansionsList(cardSelected.set) === false
+           || cardSelected.id.startsWith("CORE_ULD") 
+           || cardSelected.id.startsWith("CORE_BOT")
+           || cardSelected.set === "VANILLA" && cardSelected.type === "SPELL" 
+           || cardSelected.set === "HERO_SKINS" 
+           || cardSelected.set === "PLACEHOLDER_202204"
+           || cardSelected.set === "CORE" && cardSelected.name.endsWith("Spellstone")){
       const randI = Math.floor(Math.random() * (cardsArray.length - 0 + 1))
       cardSelected = cardsArray[randI]
+      console.log(cardSelected)
+    }
+
+    function inExpansionsList(set) {
+      for (let i = 0; i < availableExpansions.length; i++) {
+        if (availableExpansions[i].name === set && availableExpansions[i].available === true) {
+          return true
+        }
+      }
+      return false
     }
 
     //  const debug = {
-    //   "artist": "Gabe from Penny Arcade",
-    //   "attack": 6,
-    //   "cardClass": "NEUTRAL",
+    //   "artist": "Mike Azevedo",
+    //   "cardClass": "WARLOCK",
     //   "collectible": true,
-    //   "cost": 5,
-    //   "dbfId": 111462,
-    //   "elite": true,
-    //   "faction": "ALLIANCE",
-    //   "flavor": "At least he has Angry Chicken.",
-    //   "health": 2,
-    //   "howToEarn": "Unlocked by completing the Tutorial.",
-    //   "howToEarnGolden": "Unlocked after 5000 total wins.",
-    //   "id": "CORE_EX1_116",
+    //   "cost": 4,
+    //   "dbfId": 111453,
+    //   "flavor": "A purple stone Azari carved\nFor dark hearts, craving, power-starved.\nThe first to bow, the warlock Rin,\nEmbraced the darkness, slew her kin.",
+    //   "howToEarn": "Unlocked with the Warlock class.",
+    //   "howToEarnGolden": "Unlocked after winning 100 games as Warlock.",
+    //   "id": "CORE_LOOT_043",
     //   "mechanics": [
-    //     "BATTLECRY",
-    //     "CHARGE"
+    //     "LIFESTEAL"
     //   ],
-    //   "name": "Leeroy Jenkins",
-    //   "rarity": "LEGENDARY",
+    //   "name": "Lesser Amethyst Spellstone",
+    //   "rarity": "RARE",
     //   "set": "CORE",
-    //   "text": "\u003Cb\u003ECharge\u003C/b\u003E. \u003Cb\u003EBattlecry:\u003C/b\u003E Summon two 1/1 Whelps for your opponent.",
-    //   "type": "MINION"
+    //   "spellSchool": "SHADOW",
+    //   "text": "\u003Cb\u003ELifesteal.\u003C/b\u003E Deal $3 damage to a minion. \u003Ci\u003E(Take damage from your cards to upgrade.)\u003C/i\u003E",
+    //   "type": "SPELL"
     // }
-    //  return debug
+    // return debug
     return cardSelected
   
 }

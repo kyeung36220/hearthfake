@@ -27,7 +27,7 @@ import WeaponAttack from "./customDisplay/WeaponAttack.jsx"
 import Durability from "./customDisplay/Durability.jsx"
 import Armor from "./customDisplay/Armor.jsx"
 
-function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
+function Card( {setCurrentScore, setBestScore, currentScore, bestScore, availableExpansions }) {
     let [cards, setCards] = useState([])
     let [currentCard, setCurrentCard] = useState({})
     let [isCurrentCardWrong, setIsCurrentCardWrong] = useState(false)
@@ -55,7 +55,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
     }, [cards])
 
     async function applyRandomCard() {
-        const cardSelected = getRandomCard(cards)
+        const cardSelected = getRandomCard(cards, availableExpansions)
 
         // 80% chance that there is something wrong with card
         const randI = Math.floor(Math.random() * (5))
@@ -85,6 +85,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
         }
         else if (isGuessCorrectBool === false){
             if (bestScore < currentScore) {
+                localStorage.setItem("bestScore", currentScore)
                 setBestScore(currentScore)
             }
             return
@@ -96,6 +97,18 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
         applyRandomCard()
         setCurrentScore(0)
         handleNewGameClickDOM()
+    }
+
+    function isThereAvailableExpansion() {
+        for (let i = 0; i < availableExpansions.length; i++) {
+            console.log(i)
+            if (availableExpansions[i].available === true) {
+                console.log(availableExpansions[i])
+                return true
+            }
+        }
+        availableExpansions
+        return false
     }
     
     return (
@@ -171,12 +184,24 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore }) {
             </div>
             <button id="newGame"
                     className="hidden"
-                    onClick={() => handleNewGameClick()}>
+                    onClick={() => {
+                                    if (isThereAvailableExpansion() === true) {
+                                        handleNewGameClick();
+                                    } 
+                                    else {
+                                        alert("No Selected Expansions!");
+                                    }}}>
                 New Game
             </button>
             <button id="nothingWrong"
                     className="hidden"
-                    onClick={(e) => handleGuessClicked(e)}>
+                    onClick={(e) => {
+                                    if (isThereAvailableExpansion() === true) {
+                                        handleGuessClicked(e);
+                                    } 
+                                    else {
+                                        alert("No Selected Expansions!");
+                                    }}}>
                 Nothing wrong
             </button>
             <img id="checkmark"
