@@ -19,7 +19,6 @@ function getRandomCard(cardsArray, availableExpansions) {
            || cardSelected.set === "CORE" && cardSelected.name.endsWith("Spellstone")){
       const randI = Math.floor(Math.random() * (cardsArray.length - 0 + 1))
       cardSelected = cardsArray[randI]
-      console.log(cardSelected)
     }
 
     function inExpansionsList(set) {

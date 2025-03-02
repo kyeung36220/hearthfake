@@ -101,9 +101,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore, availabl
 
     function isThereAvailableExpansion() {
         for (let i = 0; i < availableExpansions.length; i++) {
-            console.log(i)
             if (availableExpansions[i].available === true) {
-                console.log(availableExpansions[i])
                 return true
             }
         }
