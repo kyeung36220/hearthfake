@@ -59,6 +59,10 @@ const App = () => {
   useEffect(() => {
     if (localStorage.getItem("expansionsArray") !== null) {
       const expansionsArray = JSON.parse(localStorage.getItem("expansionsArray"))
+      for (let i = 0; i < expansionsArray.length; i++) {
+        expansionsArray[i].name = fullExpansionsArray[i].name
+        expansionsArray[i].display = fullExpansionsArray[i].display
+      }
       setAvailableExpansions(expansionsArray)
     }
     else {
