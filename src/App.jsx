@@ -1,5 +1,5 @@
 import Card from "./Card.jsx"
-import {useState, useEffect, useRef} from "react"
+import {useState, useEffect} from "react"
 import github from "./assets/other/github-mark.svg"
 import questionMark from "./assets/other/question-mark.svg"
 import rightArrow from "./assets/other/rightArrow.svg"

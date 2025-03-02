@@ -1,3 +1,5 @@
+import {useState} from "react"
+
 function ExpansionChooseList({availableExpansions, setAvailableExpansions}) {
            
     return (
@@ -14,7 +16,8 @@ function ExpansionChooseList({availableExpansions, setAvailableExpansions}) {
                     </div>
                 ))}
             </div>
-            <button onClick={handleAllSetClick}>All Set</button>
+            <button id="allSet" onClick={handleAllSetClick}>All Set</button>
+            <button id="toggleAll"onClick={() => handleToggleAllClick()}>Toggle All (will reload page)</button>
         </div>
     )
 
@@ -33,6 +36,16 @@ function ExpansionChooseList({availableExpansions, setAvailableExpansions}) {
     function handleAllSetClick() {
         document.querySelector("#expansionsScreen").classList.add("hidden")
         localStorage.setItem("expansionsArray", JSON.stringify(availableExpansions))
+    }
+
+    function handleToggleAllClick() {
+        const newExpansionsArray = structuredClone(availableExpansions)
+        for (let i = 0; i < newExpansionsArray.length; i++) {
+            newExpansionsArray[i].available = !newExpansionsArray[i].available
+        }
+        setAvailableExpansions(newExpansionsArray)
+        localStorage.setItem("expansionsArray", JSON.stringify(newExpansionsArray))
+        window.location.reload()
     }
 }
 
