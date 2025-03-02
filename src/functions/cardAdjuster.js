@@ -61,7 +61,7 @@ function adjustCard(correctCard) {
 function adjustCost(card) {
     const newCard = card
     const randI = Math.floor(Math.random() * (2))
-    if (randI === 0 || newCard.cost === 0) {
+    if (randI === 0 || newCard.cost === 0 || newCard.cost === 1) {
         newCard.cost = newCard.cost + 1
     }
     else {
@@ -139,6 +139,12 @@ function adjustAttack(card) {
 function adjustGem(card) {
     const newCard = card
     const currentRarity = card.rarity
+
+    // preventing legendary from being changed to rare (Currently no way to remove dragon so this will have to do)
+    if (currentRarity === "LEGENDARY") {
+        return adjustText(card)
+    }
+
     const rarities = ["COMMON", "RARE", "EPIC", "LEGENDARY"]
     let randomRarity = currentRarity
     while (randomRarity === currentRarity) {

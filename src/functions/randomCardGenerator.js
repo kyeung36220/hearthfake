@@ -3,8 +3,6 @@ function getRandomCard(cardsArray) {
 
     const validCardTypes = ["WEAPON", "MINION", "SPELL", "HERO", "LOCATION"]
 
-
-    //currently only doing minions, hopefully doing more in future
     // CORE_ULD images are broken
     // Vanilla set has some issues with spell schools
     // CORE_BOT has some broken images
@@ -17,23 +15,27 @@ function getRandomCard(cardsArray) {
     }
 
     //  const debug = {
-    //   "artist": "James Ryman",
+    //   "artist": "Gabe from Penny Arcade",
     //   "attack": 6,
-    //   "cardClass": "DEMONHUNTER",
+    //   "cardClass": "NEUTRAL",
     //   "collectible": true,
-    //   "cost": 6,
-    //   "dbfId": 68061,
+    //   "cost": 5,
+    //   "dbfId": 111462,
     //   "elite": true,
-    //   "flavor": "This is what happens when you keep taking the advice of the little demon on your shoulder.",
-    //   "health": 6,
-    //   "id": "AV_267",
+    //   "faction": "ALLIANCE",
+    //   "flavor": "At least he has Angry Chicken.",
+    //   "health": 2,
+    //   "howToEarn": "Unlocked by completing the Tutorial.",
+    //   "howToEarnGolden": "Unlocked after 5000 total wins.",
+    //   "id": "CORE_EX1_116",
     //   "mechanics": [
-    //     "BATTLECRY"
+    //     "BATTLECRY",
+    //     "CHARGE"
     //   ],
-    //   "name": "Caria Felsoul",
+    //   "name": "Leeroy Jenkins",
     //   "rarity": "LEGENDARY",
-    //   "set": "ALTERAC_VALLEY",
-    //   "text": "\u003Cb\u003EBattlecry:\u003C/b\u003E Transform into a 6/6 copy of a Demon in your deck.",
+    //   "set": "CORE",
+    //   "text": "\u003Cb\u003ECharge\u003C/b\u003E. \u003Cb\u003EBattlecry:\u003C/b\u003E Summon two 1/1 Whelps for your opponent.",
     //   "type": "MINION"
     // }
     //  return debug
