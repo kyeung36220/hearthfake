@@ -30,34 +30,34 @@ function getRandomCard(cardsArray, availableExpansions) {
       return false
     }
 
-     const debug = {
-      "artist": "Max Grecke",
-      "attack": 6,
-      "cardClass": "DRUID",
-      "collectible": true,
-      "cost": 6,
-      "dbfId": 94250,
-      "elite": true,
-      "flavor": "Despite having only 3 digits on each hand, Zok plays Bass like he has 5.",
-      "health": 6,
-      "id": "ETC_386",
-      "mechanics": [
-        "BATTLECRY"
-      ],
-      "name": "Zok Fogsnout",
-      "race": "QUILBOAR",
-      "races": [
-        "QUILBOAR"
-      ],
-      "rarity": "LEGENDARY",
-      "referencedTags": [
-        "TAUNT"
-      ],
-      "set": "BATTLE_OF_THE_BANDS",
-      "text": "[x]\u003Cb\u003EBattlecry:\u003C/b\u003E Summon two\n{0}/{1} Quilboar with \u003Cb\u003ETaunt\u003C/b\u003E.\n \u003Ci\u003E(Improved by your hero Attack \n  & Armor gained this turn!)\u003C/i\u003E",
-      "type": "MINION"
-    }
-    return debug
+    //  const debug = {
+    //   "artist": "Max Grecke",
+    //   "attack": 6,
+    //   "cardClass": "DRUID",
+    //   "collectible": true,
+    //   "cost": 6,
+    //   "dbfId": 94250,
+    //   "elite": true,
+    //   "flavor": "Despite having only 3 digits on each hand, Zok plays Bass like he has 5.",
+    //   "health": 6,
+    //   "id": "ETC_386",
+    //   "mechanics": [
+    //     "BATTLECRY"
+    //   ],
+    //   "name": "Zok Fogsnout",
+    //   "race": "QUILBOAR",
+    //   "races": [
+    //     "QUILBOAR"
+    //   ],
+    //   "rarity": "LEGENDARY",
+    //   "referencedTags": [
+    //     "TAUNT"
+    //   ],
+    //   "set": "BATTLE_OF_THE_BANDS",
+    //   "text": "[x]\u003Cb\u003EBattlecry:\u003C/b\u003E Summon two\n{0}/{1} Quilboar with \u003Cb\u003ETaunt\u003C/b\u003E.\n \u003Ci\u003E(Improved by your hero Attack \n  & Armor gained this turn!)\u003C/i\u003E",
+    //   "type": "MINION"
+    // }
+    // return debug
     return cardSelected
   
 }
