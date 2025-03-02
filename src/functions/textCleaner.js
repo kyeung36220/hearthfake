@@ -4,6 +4,8 @@ function textCleaner(string) {
                  .replace(/#/g, "")
                  .replace(/<i>/g, "<em>")
                  .replace(/<\/i>/g, "</em>")
+                 .replace(/{/g, "")
+                 .replace(/}/g, "")
                  .trim()
 }
 

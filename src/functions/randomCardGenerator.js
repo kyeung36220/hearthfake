@@ -30,27 +30,34 @@ function getRandomCard(cardsArray, availableExpansions) {
       return false
     }
 
-    //  const debug = {
-    //   "artist": "Mike Azevedo",
-    //   "cardClass": "WARLOCK",
-    //   "collectible": true,
-    //   "cost": 4,
-    //   "dbfId": 111453,
-    //   "flavor": "A purple stone Azari carved\nFor dark hearts, craving, power-starved.\nThe first to bow, the warlock Rin,\nEmbraced the darkness, slew her kin.",
-    //   "howToEarn": "Unlocked with the Warlock class.",
-    //   "howToEarnGolden": "Unlocked after winning 100 games as Warlock.",
-    //   "id": "CORE_LOOT_043",
-    //   "mechanics": [
-    //     "LIFESTEAL"
-    //   ],
-    //   "name": "Lesser Amethyst Spellstone",
-    //   "rarity": "RARE",
-    //   "set": "CORE",
-    //   "spellSchool": "SHADOW",
-    //   "text": "\u003Cb\u003ELifesteal.\u003C/b\u003E Deal $3 damage to a minion. \u003Ci\u003E(Take damage from your cards to upgrade.)\u003C/i\u003E",
-    //   "type": "SPELL"
-    // }
-    // return debug
+     const debug = {
+      "artist": "Max Grecke",
+      "attack": 6,
+      "cardClass": "DRUID",
+      "collectible": true,
+      "cost": 6,
+      "dbfId": 94250,
+      "elite": true,
+      "flavor": "Despite having only 3 digits on each hand, Zok plays Bass like he has 5.",
+      "health": 6,
+      "id": "ETC_386",
+      "mechanics": [
+        "BATTLECRY"
+      ],
+      "name": "Zok Fogsnout",
+      "race": "QUILBOAR",
+      "races": [
+        "QUILBOAR"
+      ],
+      "rarity": "LEGENDARY",
+      "referencedTags": [
+        "TAUNT"
+      ],
+      "set": "BATTLE_OF_THE_BANDS",
+      "text": "[x]\u003Cb\u003EBattlecry:\u003C/b\u003E Summon two\n{0}/{1} Quilboar with \u003Cb\u003ETaunt\u003C/b\u003E.\n \u003Ci\u003E(Improved by your hero Attack \n  & Armor gained this turn!)\u003C/i\u003E",
+      "type": "MINION"
+    }
+    return debug
     return cardSelected
   
 }
