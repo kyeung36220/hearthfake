@@ -31,30 +31,28 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Max Grecke",
+    //   "artist": "Nicola Saviori",
     //   "attack": 6,
     //   "cardClass": "DRUID",
     //   "collectible": true,
-    //   "cost": 6,
-    //   "dbfId": 94250,
+    //   "collectionText": "\u003Cb\u003EChoose One -\u003C/b\u003E {0}; or {1}.",
+    //   "cost": 5,
+    //   "dbfId": 110940,
     //   "elite": true,
-    //   "flavor": "Despite having only 3 digits on each hand, Zok plays Bass like he has 5.",
-    //   "health": 6,
-    //   "id": "ETC_386",
-    //   "mechanics": [
-    //     "BATTLECRY"
-    //   ],
-    //   "name": "Zok Fogsnout",
-    //   "race": "QUILBOAR",
+    //   "flavor": "Uluu is such a tryhard, he's carrying an entire planet!",
+    //   "health": 5,
+    //   "id": "GDB_854",
+    //   "name": "Uluu, the Everdrifter",
+    //   "race": "BEAST",
     //   "races": [
-    //     "QUILBOAR"
+    //     "BEAST"
     //   ],
     //   "rarity": "LEGENDARY",
     //   "referencedTags": [
-    //     "TAUNT"
+    //     "CHOOSE_ONE"
     //   ],
-    //   "set": "BATTLE_OF_THE_BANDS",
-    //   "text": "[x]\u003Cb\u003EBattlecry:\u003C/b\u003E Summon two\n{0}/{1} Quilboar with \u003Cb\u003ETaunt\u003C/b\u003E.\n \u003Ci\u003E(Improved by your hero Attack \n  & Armor gained this turn!)\u003C/i\u003E",
+    //   "set": "SPACE",
+    //   "text": "[x]Each turn this is in your\nhand, gain two random\n\u003Cb\u003EChoose One\u003C/b\u003E choices.",
     //   "type": "MINION"
     // }
     // return debug

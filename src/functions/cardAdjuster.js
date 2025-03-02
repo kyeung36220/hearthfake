@@ -14,6 +14,7 @@ function adjustCard(correctCard) {
                      {type: "HERO", attributes: ["cost", "text", "armor"]},
                      {type: "LOCATION", attributes: ["cost", "gem", "text", "locationDurability"]}]
 
+    // mathcing card types to things that can be wrong
     for (let i = 0; i < cardTypes.length; i++) {
         if (cardTypes[i].type === correctCard.type) {
             thingsThatCanBeWrong = cardTypes[i].attributes
@@ -175,7 +176,7 @@ function adjustText(card) {
     }
 
     newCard.text = textCleaner(card.text)
-    if (card.collectionText) {
+    if (card.collectionText && !/\{0}/g.test(card.collectionText)) {
         newCard.text = textCleaner(newCard.collectionText)
     }
 

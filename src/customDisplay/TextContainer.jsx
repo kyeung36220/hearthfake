@@ -23,7 +23,7 @@ import locationStyles from "../styles/locationCard.module.css"
 function TextContainer({currentCard, handleGuessClicked}) {
     
     let cleanText = currentCard.text
-    if (currentCard.collectionText) {
+    if (currentCard.collectionText && !/\{0}/g.test(currentCard.collectionText)) {
         cleanText = textCleaner(currentCard.collectionText)
     }
     else if (currentCard.text) {
