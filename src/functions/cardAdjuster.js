@@ -175,7 +175,7 @@ function adjustText(card) {
     // in case we roll to adjust text with a card with no text
     if (!card.text || card.text.length === 1) {
         const randI = Math.floor(Math.random() * (solitaryKeyWords.length))
-        newCard.text = solitaryKeyWords[randI]
+        newCard.text = `<b>${solitaryKeyWords[randI]}</b>`
         newCard.wrong = 'text'
         return newCard
     }
