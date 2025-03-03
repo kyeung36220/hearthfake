@@ -167,7 +167,7 @@ function adjustText(card) {
     
     const possibleChanges = []
     const solitaryKeyWords = ["Rush", "Charge", "Taunt", "Divine Shield", "Stealth", 
-                              "Windfury", "Poisonous", "Elusive", "Lifesteal"]
+                              "Windfury", "Poisonous", "Elusive", "Lifesteal", "Reborn"]
     const dependentKeyWords = ["Battlecry", "Deathrattle", "Spellburst", "Finale", "Quickdraw", "Inspire"]
     const handKeyWords = ["Corrupt", "Finale", "Quickdraw", "Forge"]
     const outdatedKillWords = ["Frenzy", "Overkill", "Honorable Kill"]
