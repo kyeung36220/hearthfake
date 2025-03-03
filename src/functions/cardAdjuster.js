@@ -189,6 +189,9 @@ function adjustText(card) {
     if (card.race === "MECHANICAL" && !card.text.includes("Magnetic")) {
         possibleChanges.push({choice: "addMagnetic", current: null})
     }
+    else if (card.race === "MECHANICAL") {
+        possibleChanges.push({choice: "removeMagnetic", current: null})
+    }
 
     const words = newCard.text.split(' ')
     for (const word of words) {
@@ -239,6 +242,9 @@ function adjustText(card) {
 
     if (randomTextAdjustmentChoice === "addMagnetic") {
         newCard.text = "<b>Magnetic</b>\n" + newCard.text
+    }
+    else if (randomTextAdjustmentChoice == "removeMagnetic") {
+        newCard.text = newCard.text.replace("Magnetic", "")
     }
     else if (randomTextAdjustmentChoice === "changeSolitaryKeyWord") {
         let chosenSolitaryKeyWord = currentWord

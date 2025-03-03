@@ -32,24 +32,35 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Vladimir Kafanov",
-    //   "cardClass": "ROGUE",
+    //   "artist": "L. Lullabi & K. Turovec",
+    //   "attack": 3,
+    //   "cardClass": "NEUTRAL",
     //   "collectible": true,
-    //   "cost": 2,
-    //   "dbfId": 56524,
-    //   "flavor": "Clip-clop clip-clop CLIP-CLOP STAB!",
-    //   "id": "BT_707",
+    //   "cost": 5,
+    //   "dbfId": 97112,
+    //   "elite": true,
+    //   "flavor": "Everything but the kitchen sink. Oh wait, there's one on his back.",
+    //   "hasDiamondSkin": true,
+    //   "health": 2,
+    //   "howToEarn": "Unlocked by completing the Tutorial.",
+    //   "howToEarnGolden": "Unlocked after 5000 total wins.",
+    //   "id": "CORE_BOT_548",
     //   "mechanics": [
-    //     "SECRET"
+    //     "DIVINE_SHIELD",
+    //     "LIFESTEAL",
+    //     "MAGNETIC",
+    //     "RUSH",
+    //     "TAUNT"
     //   ],
-    //   "name": "Ambush",
-    //   "rarity": "RARE",
-    //   "referencedTags": [
-    //     "POISONOUS"
+    //   "name": "Zilliax",
+    //   "race": "MECHANICAL",
+    //   "races": [
+    //     "MECHANICAL"
     //   ],
-    //   "set": "BLACK_TEMPLE",
-    //   "text": "[x]\u003Cb\u003ESecret:\u003C/b\u003E After your\nopponent plays a minion,\nsummon a 2/3 Ambusher\nwith \u003Cb\u003EPoisonous\u003C/b\u003E.",
-    //   "type": "SPELL"
+    //   "rarity": "LEGENDARY",
+    //   "set": "PLACEHOLDER_202204",
+    //   "text": "\u003Cb\u003EMagnetic\u003C/b\u003E\n\u003Cb\u003E\u003Cb\u003EDivine Shield\u003C/b\u003E, \u003Cb\u003ETaunt\u003C/b\u003E, Lifesteal, Rush\u003C/b\u003E",
+    //   "type": "MINION"
     // }
     // return debug
     return cardSelected
