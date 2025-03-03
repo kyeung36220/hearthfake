@@ -141,7 +141,7 @@
     left: 0;
     right: 0;
     transform: translate(0%, 1050%);
-    z-index: 3;
+    z-index: 7;
     cursor: pointer;
 }
 

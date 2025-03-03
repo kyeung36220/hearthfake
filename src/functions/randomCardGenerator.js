@@ -33,19 +33,16 @@ function getRandomCard(cardsArray, availableExpansions) {
 
     //  const debug = {
     //   "artist": "Anton Zemskov",
-    //   "cardClass": "ROGUE",
+    //   "cardClass": "WARRIOR",
     //   "collectible": true,
-    //   "cost": 0,
-    //   "dbfId": 86092,
-    //   "elite": true,
-    //   "flavor": "Each time you cast a spell, transform this into a copy of its flavor text.",
-    //   "hideStats": true,
-    //   "id": "RLK_567",
-    //   "name": "Shadow of Demise",
-    //   "rarity": "LEGENDARY",
-    //   "set": "RETURN_OF_THE_LICH_KING",
-    //   "spellSchool": "SHADOW",
-    //   "text": "Each time you cast a spell, transform this into a copy of it.",
+    //   "cost": 2,
+    //   "dbfId": 78262,
+    //   "flavor": "No, Blizzard!",
+    //   "id": "REV_337",
+    //   "name": "Riot!",
+    //   "rarity": "EPIC",
+    //   "set": "REVENDRETH",
+    //   "text": "[x]Your minions can't be \nreduced below 1 Health \nthis turn. They each attack \na random enemy minion.",
     //   "type": "SPELL"
     // }
     // return debug
