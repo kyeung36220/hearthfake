@@ -199,7 +199,6 @@ function adjustText(card) {
 
     const words = newCard.text.split(' ')
     for (const word of words) {
-        console.log(word)
         const solitaryRegex = new RegExp(`\\b(${solitaryKeyWords.join("|")})\\b`, "gi")
         if (word.match(solitaryRegex) && !possibleChanges.includes("changeSolitaryKeyWord")) {
             possibleChanges.push({choice: "changeSolitaryKeyWord", current: word.match(solitaryRegex)[0]})
@@ -243,7 +242,6 @@ function adjustText(card) {
 
     const randI = Math.floor(Math.random() * (possibleChanges.length))
     const randomTextAdjustmentChoice = possibleChanges[randI].choice
-    console.log(randomTextAdjustmentChoice)
     const currentWord = possibleChanges[randI].current
 
     if (randomTextAdjustmentChoice === "addMagnetic") {
