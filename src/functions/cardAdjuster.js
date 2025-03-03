@@ -193,12 +193,13 @@ function adjustText(card) {
     const words = newCard.text.split(' ')
     for (const word of words) {
         if (solitaryKeyWords.includes(word) && !possibleChanges.includes("changeSolitaryKeyWord")) {
+            console.log("solitaryKeyWord Found!")
             possibleChanges.push({choice: "changeSolitaryKeyWord", current: word})
         }
         if (solitaryKeyWords.includes(word) && !possibleChanges.includes("removeSolitaryKeyWord")) {
             possibleChanges.push({choice: "removeSolitaryKeyWord", current: word})
         }
-        else if (!isNaN(parseFloat(word)) && !isNaN(word - 0) && !possibleChanges.includes("changeNumber")) {
+        else if (/\d/.test(word) && !possibleChanges.includes("changeNumber")) {
             possibleChanges.push({choice: "changeNumber", current: word})
         }
         else if (dependentKeyWords.includes(word) && !possibleChanges.includes("changeDependentKeyWord")) {
@@ -207,7 +208,9 @@ function adjustText(card) {
         else if (handKeyWords.includes(word) && !possibleChanges.includes("changeHandKeyWord")) {
             possibleChanges.push({choice: "changeHandKeyWord", current: word})
         }
-
+        else if (/friendly/.test(word)) {
+            possibleChanges.push({choice: "removeFriendly", current: word})
+        }
         const bigDudeRegex = /\b(?:\w*Titan\w*|\w*colossal\w*)\b/i
         if (bigDudeRegex.test(word) && !possibleChanges.includes("changeBigDude")) {
             possibleChanges.push({choice: "changeBigDude", current: word})
@@ -240,20 +243,18 @@ function adjustText(card) {
         newCard.text = newCard.text.replace(currentWord, "")
     }
     else if (randomTextAdjustmentChoice === "changeNumber") {
-        let chosenNumber = currentWord
+        let chosenNumber = currentWord.match(/\d+/)
         const randI = Math.floor(Math.random() * (2))
-        const hasPlusSign = currentWord.charAt(0) === "+"
 
         let newNumber
-        if (randI === 0 || Number(chosenNumber) === 1) {
+        if (randI === 0 || Number(chosenNumber) === 1 || Number(chosenNumber) === 0) {
             newNumber = Number(chosenNumber) + 1
         }
         else {
             newNumber = Number(chosenNumber) - 1
         }
 
-        newCard.text = hasPlusSign ? newCard.text.replace(chosenNumber, `+${newNumber}`) : 
-                                     newCard.text.replace(chosenNumber, newNumber)
+        newCard.text = newCard.text.replace(chosenNumber, newNumber)
     }
     else if (randomTextAdjustmentChoice === "changeDependentKeyWord") {
         let chosenDependentKeyWord = currentWord
@@ -293,6 +294,9 @@ function adjustText(card) {
             chosenOutdatedKillWord = outdatedKillWords[randI]
         }
         newCard.text = newCard.text.replace(currentWord, chosenOutdatedKillWord)
+    }
+    else if (randomTextAdjustmentChoice === "removeFriendly") {
+        newCard.text = newCard.text.replace("friendly", "")
     }
 
     if (card.collectionText) {

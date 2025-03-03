@@ -32,18 +32,25 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Anton Zemskov",
-    //   "cardClass": "WARRIOR",
+    //   "artist": "A.J. Nazzaro",
+    //   "attack": 2,
+    //   "cardClass": "PALADIN",
     //   "collectible": true,
-    //   "cost": 2,
-    //   "dbfId": 78262,
-    //   "flavor": "No, Blizzard!",
-    //   "id": "REV_337",
-    //   "name": "Riot!",
-    //   "rarity": "EPIC",
-    //   "set": "REVENDRETH",
-    //   "text": "[x]Your minions can't be \nreduced below 1 Health \nthis turn. They each attack \na random enemy minion.",
-    //   "type": "SPELL"
+    //   "cost": 3,
+    //   "dbfId": 72810,
+    //   "elite": true,
+    //   "flavor": "An orc mage accidentally kited him all the way from Stratholme.",
+    //   "health": 2,
+    //   "id": "AV_345",
+    //   "mechanics": [
+    //     "RUSH",
+    //     "TRIGGER_VISUAL"
+    //   ],
+    //   "name": "Saidan the Scarlet",
+    //   "rarity": "LEGENDARY",
+    //   "set": "ALTERAC_VALLEY",
+    //   "text": "\u003Cb\u003ERush.\u003C/b\u003E Whenever this minion gains Attack or Health, double that amount \u003Ci\u003E(wherever this is)\u003C/i\u003E.",
+    //   "type": "MINION"
     // }
     // return debug
     return cardSelected
