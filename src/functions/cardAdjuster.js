@@ -8,7 +8,7 @@ function adjustCard(correctCard) {
 
     let thingsThatCanBeWrong = []
     
-    let cardTypes = [{type: "MINION", attributes: ["text"]},
+    let cardTypes = [{type: "MINION", attributes: ["cost", "gem", "attack", "health", "text", "race"]},
                      {type: "SPELL", attributes: ["cost", "gem", "text", "spellSchool"]},
                      {type: "WEAPON", attributes: ["cost", "gem", "text", "attack", "durability"]},
                      {type: "HERO", attributes: ["cost", "text", "armor"]},
