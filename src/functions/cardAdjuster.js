@@ -14,7 +14,7 @@ function adjustCard(correctCard) {
                      {type: "HERO", attributes: ["cost", "text", "armor"]},
                      {type: "LOCATION", attributes: ["cost", "gem", "text", "locationDurability"]}]
 
-    // mathcing card types to things that can be wrong
+    // matching card types to things that can be wrong
     for (let i = 0; i < cardTypes.length; i++) {
         if (cardTypes[i].type === correctCard.type) {
             thingsThatCanBeWrong = cardTypes[i].attributes
@@ -61,7 +61,7 @@ function adjustCard(correctCard) {
 
 function adjustCost(card) {
 
-    if (card.hideStats) {
+    if (card.hideStats || card.mechanics && card.mechanics[0] === "SECRET") {
         return adjustSpellSchool(card)
     }
 
@@ -166,11 +166,11 @@ function adjustText(card) {
     const newCard = card
     
     const possibleChanges = []
-    const solitaryKeyWords = ["<b>Rush</b>", "<b>Charge</b>", "<b>Tradeable</b>", "<b>Taunt</b>", "<b>Divine Shield</b>", "<b>Stealth</b>", 
-                              "<b>Windfury</b>", "<b>Poisonous</b>", "<b>Elusive</b>", "<b>Gigantify</b>"]
-    const dependentKeyWords = ["<b>Battlecry:</b>", "<b>Deathrattle:</b>", "<b>Outcast:</b>", "<b>Combo:</b>", "<b>Spellburst:</b>", "<b>Finale:</b>", "<b>Quickdraw:</b>"]
-    const handKeyWords = ["<b>Corrupt:</b>", "<b>Finale:</b>", "<b>Quickdraw:</b>", "<b>Forge:</b>"]
-    const outdatedKillWords = ["<b>Frenzy:</b>", "<b>Overkill:</b>", "<b>Honorable Kill:</b>"]
+    const solitaryKeyWords = ["Rush", "Charge", "Taunt", "Divine Shield", "Stealth", 
+                              "Windfury", "Poisonous", "Elusive"]
+    const dependentKeyWords = ["Battlecry", "Deathrattle", "Spellburst", "Finale", "Quickdraw", "Inspire"]
+    const handKeyWords = ["Corrupt", "Finale", "Quickdraw", "Forge"]
+    const outdatedKillWords = ["Frenzy", "Overkill", "Honorable Kill"]
 
     // in case we roll to adjust text with a card with no text
     if (!card.text || card.text.length === 1) {
@@ -192,31 +192,40 @@ function adjustText(card) {
 
     const words = newCard.text.split(' ')
     for (const word of words) {
-        if (solitaryKeyWords.includes(word) && !possibleChanges.includes("changeSolitaryKeyWord")) {
-            console.log("solitaryKeyWord Found!")
-            possibleChanges.push({choice: "changeSolitaryKeyWord", current: word})
+        const solitaryRegex = new RegExp(`\\b(${solitaryKeyWords.join("|")})\\b`, "gi")
+        if (word.match(solitaryRegex) && !possibleChanges.includes("changeSolitaryKeyWord")) {
+            possibleChanges.push({choice: "changeSolitaryKeyWord", current: word.match(solitaryRegex)[0]})
         }
-        if (solitaryKeyWords.includes(word) && !possibleChanges.includes("removeSolitaryKeyWord")) {
-            possibleChanges.push({choice: "removeSolitaryKeyWord", current: word})
-        }
+
+        // Right now will be removing this because it has formatting issues
+        // if (word.match(solitaryRegex) && !possibleChanges.includes("removeSolitaryKeyWord")) {
+        //     possibleChanges.push({choice: "removeSolitaryKeyWord", current: word})
+        // }
+
         else if (/\d/.test(word) && !possibleChanges.includes("changeNumber")) {
             possibleChanges.push({choice: "changeNumber", current: word})
         }
-        else if (dependentKeyWords.includes(word) && !possibleChanges.includes("changeDependentKeyWord")) {
-            possibleChanges.push({choice: "changeDependentKeyWord", current: word})
+
+        const dependentRegex = new RegExp(`\\b(${dependentKeyWords.join("|")})\\b`, "gi")
+        if (word.match(dependentRegex) && !possibleChanges.includes("changeDependentKeyWord")) {
+            possibleChanges.push({choice: "changeDependentKeyWord", current: word.match(dependentRegex)[0]})
         }
-        else if (handKeyWords.includes(word) && !possibleChanges.includes("changeHandKeyWord")) {
-            possibleChanges.push({choice: "changeHandKeyWord", current: word})
+
+        const handRegex = new RegExp(`\\b(${handKeyWords.join("|")})\\b`, "gi")
+        if (word.match(handRegex) && !possibleChanges.includes("changeHandKeyWord")) {
+            possibleChanges.push({choice: "changeHandKeyWord", current: word.match(handRegex)[0]})
         }
-        else if (/friendly/.test(word)) {
-            possibleChanges.push({choice: "removeFriendly", current: word})
+        else if (/friendly/.test(word)||/enemy/.test(word)) {
+            possibleChanges.push({choice: "removeFriendlyOrEnemy", current: word})
         }
         const bigDudeRegex = /\b(?:\w*Titan\w*|\w*colossal\w*)\b/i
         if (bigDudeRegex.test(word) && !possibleChanges.includes("changeBigDude")) {
             possibleChanges.push({choice: "changeBigDude", current: word})
         }
-        else if (outdatedKillWords.includes(word) && !possibleChanges.includes("changeOutdatedKillWord")) {
-            possibleChanges.push({choice: "changeOutdatedKillWord", current: word})
+        
+        const outdatedKillWordsRegex = new RegExp(`\\b(${outdatedKillWords.join("|")})\\b`, "gi")
+        if (word.match(outdatedKillWordsRegex) && !possibleChanges.includes("changeOutdatedKillWord")) {
+            possibleChanges.push({choice: "changeOutdatedKillWord", current: word.match(outdatedKillWordsRegex)[0]})
         }
     }
 
@@ -237,7 +246,7 @@ function adjustText(card) {
             const randI = Math.floor(Math.random() * (solitaryKeyWords.length))
             chosenSolitaryKeyWord = solitaryKeyWords[randI]
         }
-        newCard.text = newCard.text.replace(currentWord, chosenSolitaryKeyWord)
+        newCard.text = newCard.text.replace(currentWord, `<b>${chosenSolitaryKeyWord}</b>`)
     }
     else if (randomTextAdjustmentChoice === "removeSolitaryKeyWord") {
         newCard.text = newCard.text.replace(currentWord, "")
@@ -262,7 +271,7 @@ function adjustText(card) {
             const randI = Math.floor(Math.random() * (dependentKeyWords.length))
             chosenDependentKeyWord = dependentKeyWords[randI]
         }
-        newCard.text = newCard.text.replace(currentWord, chosenDependentKeyWord)
+        newCard.text = newCard.text.replace(currentWord, `${chosenDependentKeyWord}`)
     }
     else if (randomTextAdjustmentChoice === "changeHandKeyWord") {
         let chosenHandKeyWord = currentWord
@@ -295,8 +304,13 @@ function adjustText(card) {
         }
         newCard.text = newCard.text.replace(currentWord, chosenOutdatedKillWord)
     }
-    else if (randomTextAdjustmentChoice === "removeFriendly") {
-        newCard.text = newCard.text.replace("friendly", "")
+    else if (randomTextAdjustmentChoice === "removeFriendlyOrEnemy") {
+        if (randomTextAdjustmentChoice.word === "friendly") {
+            newCard.text = newCard.text.replace("friendly", "")
+        }
+        else {
+            newCard.text = newCard.text.replace("enemy", "")
+        }
     }
 
     if (card.collectionText) {

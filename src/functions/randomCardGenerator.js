@@ -32,25 +32,24 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "A.J. Nazzaro",
-    //   "attack": 2,
-    //   "cardClass": "PALADIN",
+    //   "artist": "Vladimir Kafanov",
+    //   "cardClass": "ROGUE",
     //   "collectible": true,
-    //   "cost": 3,
-    //   "dbfId": 72810,
-    //   "elite": true,
-    //   "flavor": "An orc mage accidentally kited him all the way from Stratholme.",
-    //   "health": 2,
-    //   "id": "AV_345",
+    //   "cost": 2,
+    //   "dbfId": 56524,
+    //   "flavor": "Clip-clop clip-clop CLIP-CLOP STAB!",
+    //   "id": "BT_707",
     //   "mechanics": [
-    //     "RUSH",
-    //     "TRIGGER_VISUAL"
+    //     "SECRET"
     //   ],
-    //   "name": "Saidan the Scarlet",
-    //   "rarity": "LEGENDARY",
-    //   "set": "ALTERAC_VALLEY",
-    //   "text": "\u003Cb\u003ERush.\u003C/b\u003E Whenever this minion gains Attack or Health, double that amount \u003Ci\u003E(wherever this is)\u003C/i\u003E.",
-    //   "type": "MINION"
+    //   "name": "Ambush",
+    //   "rarity": "RARE",
+    //   "referencedTags": [
+    //     "POISONOUS"
+    //   ],
+    //   "set": "BLACK_TEMPLE",
+    //   "text": "[x]\u003Cb\u003ESecret:\u003C/b\u003E After your\nopponent plays a minion,\nsummon a 2/3 Ambusher\nwith \u003Cb\u003EPoisonous\u003C/b\u003E.",
+    //   "type": "SPELL"
     // }
     // return debug
     return cardSelected
