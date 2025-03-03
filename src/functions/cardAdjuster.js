@@ -8,7 +8,7 @@ function adjustCard(correctCard) {
 
     let thingsThatCanBeWrong = []
     
-    let cardTypes = [{type: "MINION", attributes: ["cost", "health", "attack", "gem", "text", "race"]},
+    let cardTypes = [{type: "MINION", attributes: ["text"]},
                      {type: "SPELL", attributes: ["cost", "gem", "text", "spellSchool"]},
                      {type: "WEAPON", attributes: ["cost", "gem", "text", "attack", "durability"]},
                      {type: "HERO", attributes: ["cost", "text", "armor"]},
@@ -167,7 +167,7 @@ function adjustText(card) {
     
     const possibleChanges = []
     const solitaryKeyWords = ["Rush", "Charge", "Taunt", "Divine Shield", "Stealth", 
-                              "Windfury", "Poisonous", "Elusive"]
+                              "Windfury", "Poisonous", "Elusive", "Lifesteal"]
     const dependentKeyWords = ["Battlecry", "Deathrattle", "Spellburst", "Finale", "Quickdraw", "Inspire"]
     const handKeyWords = ["Corrupt", "Finale", "Quickdraw", "Forge"]
     const outdatedKillWords = ["Frenzy", "Overkill", "Honorable Kill"]
@@ -193,8 +193,13 @@ function adjustText(card) {
         possibleChanges.push({choice: "removeMagnetic", current: null})
     }
 
+    if(card.text.includes("random")) {
+        possibleChanges.push({choice: "removeRandom", current: null})
+    }
+
     const words = newCard.text.split(' ')
     for (const word of words) {
+        console.log(word)
         const solitaryRegex = new RegExp(`\\b(${solitaryKeyWords.join("|")})\\b`, "gi")
         if (word.match(solitaryRegex) && !possibleChanges.includes("changeSolitaryKeyWord")) {
             possibleChanges.push({choice: "changeSolitaryKeyWord", current: word.match(solitaryRegex)[0]})
@@ -238,6 +243,7 @@ function adjustText(card) {
 
     const randI = Math.floor(Math.random() * (possibleChanges.length))
     const randomTextAdjustmentChoice = possibleChanges[randI].choice
+    console.log(randomTextAdjustmentChoice)
     const currentWord = possibleChanges[randI].current
 
     if (randomTextAdjustmentChoice === "addMagnetic") {
@@ -245,6 +251,9 @@ function adjustText(card) {
     }
     else if (randomTextAdjustmentChoice == "removeMagnetic") {
         newCard.text = newCard.text.replace("Magnetic", "")
+    }
+    else if (randomTextAdjustmentChoice === "removeRandom") {
+        newCard.text = newCard.text.replace("random", "")
     }
     else if (randomTextAdjustmentChoice === "changeSolitaryKeyWord") {
         let chosenSolitaryKeyWord = currentWord
@@ -311,7 +320,7 @@ function adjustText(card) {
         newCard.text = newCard.text.replace(currentWord, chosenOutdatedKillWord)
     }
     else if (randomTextAdjustmentChoice === "removeFriendlyOrEnemy") {
-        if (randomTextAdjustmentChoice.word === "friendly") {
+        if (currentWord.includes("friendly")) {
             newCard.text = newCard.text.replace("friendly", "")
         }
         else {
