@@ -569,7 +569,7 @@ a:visited {
   padding: 1.5vw 3vw;
   display: flex;
   flex-direction: column;
-  z-index: 20;
+  z-index: 200;
 }
 
 #expansionsScreen .header {
@@ -625,6 +625,7 @@ a:visited {
 #allSet {
   width: 10vw;
   background-color: green;
+  z-index: 200;
 }
 
 #allSet:hover {
