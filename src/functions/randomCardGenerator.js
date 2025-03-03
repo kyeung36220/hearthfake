@@ -32,28 +32,27 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Paul Kwon",
-    //   "attack": 2,
-    //   "cardClass": "PRIEST",
+    //   "artist": "Steve Prescott",
+    //   "attack": 1,
+    //   "cardClass": "NEUTRAL",
     //   "collectible": true,
     //   "cost": 2,
-    //   "dbfId": 95746,
-    //   "flavor": "When you're at the bottom, there's nowhere to ascend, but up.",
+    //   "dbfId": 46710,
+    //   "flavor": "They make wonderful pets if you're not allergic to blood loss.",
     //   "health": 3,
-    //   "howToEarn": "Unlocked with Priest class.",
-    //   "howToEarnGolden": "Unlocked after winning 50 games as Priest.",
-    //   "id": "CORE_ICC_210",
+    //   "id": "GIL_143",
     //   "mechanics": [
-    //     "TRIGGER_VISUAL"
+    //     "LIFESTEAL",
+    //     "RUSH"
     //   ],
-    //   "name": "Shadow Ascendant",
-    //   "race": "UNDEAD",
+    //   "name": "Vicious Scalehide",
+    //   "race": "BEAST",
     //   "races": [
-    //     "UNDEAD"
+    //     "BEAST"
     //   ],
     //   "rarity": "COMMON",
-    //   "set": "CORE",
-    //   "text": "[x]At the end of your turn,\ngive another random\nfriendly minion +1/+1.",
+    //   "set": "GILNEAS",
+    //   "text": "\u003Cb\u003ELifesteal\u003C/b\u003E\n\u003Cb\u003ERush\u003C/b\u003E",
     //   "type": "MINION"
     // }
     // return debug
