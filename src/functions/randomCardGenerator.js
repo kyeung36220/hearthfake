@@ -9,6 +9,7 @@ function getRandomCard(cardsArray, availableExpansions) {
     // HERO_SKINS is just the skin for default heros
     // PLACEHOLDER_202204 are dupes
     // CORE spellstones collection text is wrong
+    // HEROES in DRAGONS set are Galakronds and the texts are wrong
     while (!validCardTypes.includes(cardSelected.type) 
            || inExpansionsList(cardSelected.set) === false
            || cardSelected.id.startsWith("CORE_ULD") 
@@ -17,7 +18,8 @@ function getRandomCard(cardsArray, availableExpansions) {
            || cardSelected.set === "HERO_SKINS" 
            || cardSelected.set === "PLACEHOLDER_202204"
            || cardSelected.set === "CORE" && cardSelected.name.endsWith("Spellstone")
-           || !cardSelected.collectionText && /\{0}/.test(cardSelected.text)){
+           || !cardSelected.collectionText && /\{0}/.test(cardSelected.text)
+           || cardSelected.type === "HERO" && cardSelected.set === "DRAGONS") {
       const randI = Math.floor(Math.random() * (cardsArray.length - 0 + 1))
       cardSelected = cardsArray[randI]
     }
