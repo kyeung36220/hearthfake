@@ -1,6 +1,8 @@
 
 # Heartfake
 
+Visit the website live [HERE](https://hearthfake.pages.dev/)
+
 Inspired by [Rarran's Do You Know Hearthstone?](https://www.youtube.com/playlist?list=PLbWetr69v7tlIa6x6n_k7OCwdmZ3YPzDj) series, this game challenges you to spot errors on Hearthstone cards.
 
 ## How to Play:

@@ -32,27 +32,22 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Mike Sass",
-    //   "attack": 3,
-    //   "cardClass": "NEUTRAL",
+    //   "artist": "Vladimir Kafanov",
+    //   "attack": 2,
+    //   "cardClass": "DRUID",
     //   "collectible": true,
     //   "cost": 3,
-    //   "countAsCopyOfDbfId": 79990,
-    //   "dbfId": 115971,
-    //   "flavor": "\"Look, the Sire said he wanted something more open concept...\"",
-    //   "health": 3,
-    //   "howToEarn": "Unlocked by completing the Tutorial.",
-    //   "howToEarnGolden": "Unlocked after 2500 total wins.",
-    //   "id": "CORE_REV_023",
+    //   "dbfId": 51791,
+    //   "flavor": "Lifeweaving is all well and good until it's time to cut the thread.",
+    //   "health": 5,
+    //   "id": "DAL_355",
     //   "mechanics": [
-    //     "BATTLECRY",
-    //     "TRADEABLE"
+    //     "TRIGGER_VISUAL"
     //   ],
-    //   "name": "Demolition Renovator",
-    //   "rarity": "EPIC",
-    //   "set": "CORE",
-    //   "targetingArrowText": "Destroy an enemy \u003Cb\u003Elocation\u003C/b\u003E.",
-    //   "text": "\u003Cb\u003ETradeable\u003C/b\u003E\n\u003Cb\u003EBattlecry:\u003C/b\u003E Destroy \nan enemy location.",
+    //   "name": "Lifeweaver",
+    //   "rarity": "RARE",
+    //   "set": "DALARAN",
+    //   "text": "Whenever you restore Health, add a random Druid spell to your hand.",
     //   "type": "MINION"
     // }
     // return debug
