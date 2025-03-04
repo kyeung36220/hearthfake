@@ -8,11 +8,12 @@ function adjustCard(correctCard) {
 
     let thingsThatCanBeWrong = []
     
-    let cardTypes = [{type: "MINION", attributes: ["cost", "gem", "attack", "health", "text", "race"]},
-                     {type: "SPELL", attributes: ["cost", "gem", "text", "spellSchool"]},
-                     {type: "WEAPON", attributes: ["cost", "gem", "text", "attack", "durability"]},
-                     {type: "HERO", attributes: ["cost", "text", "armor"]},
-                     {type: "LOCATION", attributes: ["cost", "gem", "text", "locationDurability"]}]
+    // text has x2 probability for minion, spell, weapon, and locations (I simply think it's more fun this way)
+    let cardTypes = [{type: "MINION", attributes: ["cost", "gem", "attack", "health", "race", "text", "text"]},
+                     {type: "SPELL", attributes: ["cost", "gem", "spellSchool", "text", "text"]},
+                     {type: "WEAPON", attributes: ["cost", "gem", "attack", "durability", "text", "text"]},
+                     {type: "HERO", attributes: ["cost", "armor" ,"text"]},
+                     {type: "LOCATION", attributes: ["cost", "gem", "locationDurability", "text", "text"]}]
 
     // matching card types to things that can be wrong
     for (let i = 0; i < cardTypes.length; i++) {
@@ -197,6 +198,14 @@ function adjustText(card) {
         possibleChanges.push({choice: "removeRandom", current: null})
     }
 
+    if(card.text.includes("end of your turn")) {
+        possibleChanges.push({choice: "endToStart", current: null})
+    }
+    else if(card.text.includes("start of your turn")) {
+        possibleChanges.push({choice: "startToEnd", current: null})
+    }
+
+
 
     const words = newCard.text.split(' ')
     for (const word of words) {
@@ -258,6 +267,14 @@ function adjustText(card) {
     else if (randomTextAdjustmentChoice === "removeRandom") {
         newCard.text = newCard.text.replace("random", "")
     }
+    else if (randomTextAdjustmentChoice === "endToStart") {
+        newCard.text = newCard.text.replace("end of your turn", "start of your turn")
+    }
+    else if (randomTextAdjustmentChoice === "startToEnd") {
+        newCard.text = newCard.text.replace("start of your turn", "end of your turn")
+    }
+
+
     else if (randomTextAdjustmentChoice === "changeSolitaryKeyWord") {
         let chosenSolitaryKeyWord = currentWord
         while (chosenSolitaryKeyWord === currentWord) {

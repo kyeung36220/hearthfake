@@ -32,22 +32,26 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Vladimir Kafanov",
-    //   "attack": 2,
-    //   "cardClass": "DRUID",
+    //   "artist": "Luca Zontini",
+    //   "attack": 1,
+    //   "cardClass": "WARRIOR",
     //   "collectible": true,
-    //   "cost": 3,
-    //   "dbfId": 51791,
-    //   "flavor": "Lifeweaving is all well and good until it's time to cut the thread.",
-    //   "health": 5,
-    //   "id": "DAL_355",
+    //   "cost": 2,
+    //   "dbfId": 97739,
+    //   "flavor": "He is absolutely fuming.",
+    //   "health": 3,
+    //   "id": "TTN_471",
     //   "mechanics": [
-    //     "TRIGGER_VISUAL"
+    //     "MAGNETIC"
     //   ],
-    //   "name": "Lifeweaver",
-    //   "rarity": "RARE",
-    //   "set": "DALARAN",
-    //   "text": "Whenever you restore Health, add a random Druid spell to your hand.",
+    //   "name": "Furious Furnace",
+    //   "race": "MECHANICAL",
+    //   "races": [
+    //     "MECHANICAL"
+    //   ],
+    //   "rarity": "EPIC",
+    //   "set": "TITANS",
+    //   "text": "[x]\u003Cb\u003EMagnetic\u003C/b\u003E\nAlso damages minions next\nto whomever this attacks.",
     //   "type": "MINION"
     // }
     // return debug
