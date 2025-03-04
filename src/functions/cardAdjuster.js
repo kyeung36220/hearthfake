@@ -197,6 +197,7 @@ function adjustText(card) {
         possibleChanges.push({choice: "removeRandom", current: null})
     }
 
+
     const words = newCard.text.split(' ')
     for (const word of words) {
         const solitaryRegex = new RegExp(`\\b(${solitaryKeyWords.join("|")})\\b`, "gi")
@@ -233,6 +234,10 @@ function adjustText(card) {
         const outdatedKillWordsRegex = new RegExp(`\\b(${outdatedKillWords.join("|")})\\b`, "gi")
         if (word.match(outdatedKillWordsRegex) && !possibleChanges.includes("changeOutdatedKillWord")) {
             possibleChanges.push({choice: "changeOutdatedKillWord", current: word.match(outdatedKillWordsRegex)[0]})
+        }
+
+        if(word.includes("Tradeable")) {
+            possibleChanges.push({choice: "removeTradeable", current: null})
         }
     }
 
@@ -325,6 +330,9 @@ function adjustText(card) {
             newCard.text = newCard.text.replace("enemy", "")
         }
     }
+    else if (randomTextAdjustmentChoice === "removeTradeable") {
+        newCard.text= newCard.text.replace("Tradeable", "")
+    }
 
     if (card.collectionText) {
         newCard.collectionText = newCard.text
@@ -339,7 +347,7 @@ function adjustText(card) {
 function adjustRace(card) {
     const newCard = card
     const races = ["BEAST", "DEMON", "DRAENEI", "DRAGON", "ELEMENTAL", "MECHANICAL", 
-                   "MURLOC", "NAGA", "PIRATE", "QUILBOAR", "TOTEM", "UNDEAD"]
+                   "MURLOC", "NAGA", "PIRATE", "QUILBOAR", "UNDEAD"]
     
     // If no race
     if (!card.races) {

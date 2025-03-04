@@ -32,27 +32,27 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Steve Prescott",
-    //   "attack": 1,
+    //   "artist": "Mike Sass",
+    //   "attack": 3,
     //   "cardClass": "NEUTRAL",
     //   "collectible": true,
-    //   "cost": 2,
-    //   "dbfId": 46710,
-    //   "flavor": "They make wonderful pets if you're not allergic to blood loss.",
+    //   "cost": 3,
+    //   "countAsCopyOfDbfId": 79990,
+    //   "dbfId": 115971,
+    //   "flavor": "\"Look, the Sire said he wanted something more open concept...\"",
     //   "health": 3,
-    //   "id": "GIL_143",
+    //   "howToEarn": "Unlocked by completing the Tutorial.",
+    //   "howToEarnGolden": "Unlocked after 2500 total wins.",
+    //   "id": "CORE_REV_023",
     //   "mechanics": [
-    //     "LIFESTEAL",
-    //     "RUSH"
+    //     "BATTLECRY",
+    //     "TRADEABLE"
     //   ],
-    //   "name": "Vicious Scalehide",
-    //   "race": "BEAST",
-    //   "races": [
-    //     "BEAST"
-    //   ],
-    //   "rarity": "COMMON",
-    //   "set": "GILNEAS",
-    //   "text": "\u003Cb\u003ELifesteal\u003C/b\u003E\n\u003Cb\u003ERush\u003C/b\u003E",
+    //   "name": "Demolition Renovator",
+    //   "rarity": "EPIC",
+    //   "set": "CORE",
+    //   "targetingArrowText": "Destroy an enemy \u003Cb\u003Elocation\u003C/b\u003E.",
+    //   "text": "\u003Cb\u003ETradeable\u003C/b\u003E\n\u003Cb\u003EBattlecry:\u003C/b\u003E Destroy \nan enemy location.",
     //   "type": "MINION"
     // }
     // return debug
