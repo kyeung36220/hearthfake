@@ -1,5 +1,5 @@
-import brokenShield from "../assets/customOverlay/brokenShield.png"
-import brokenShieldGlow from "../assets/customOverlay/brokenShieldGlow.png"
+import brokenShield from "../assets/customOverlay/brokenShield.webp"
+import brokenShieldGlow from "../assets/customOverlay/brokenShieldGlow.webp"
 import weaponStyles from "../styles/weaponCard.module.css"
 
 function Durability({currentCard, handleGuessClicked}) {

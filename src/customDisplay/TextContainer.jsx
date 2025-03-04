@@ -1,23 +1,23 @@
 import textCleaner from "../functions/textCleaner"
 
-import minionTextContainer from "../assets/text/minion/minionText.png"
-import minionTextContainerGlow from "../assets/text/minion/minionTextGlow.png"
+import minionTextContainer from "../assets/text/minion/minionText.webp"
+import minionTextContainerGlow from "../assets/text/minion/minionTextGlow.webp"
 import minionStyles from "../styles/minionCard.module.css"
 
-import spellTextContainer from "../assets/text/spell/spellText.png"
-import spellTextContainerGlow from "../assets/text/spell/spellTextGlow.png"
+import spellTextContainer from "../assets/text/spell/spellText.webp"
+import spellTextContainerGlow from "../assets/text/spell/spellTextGlow.webp"
 import spellStyles from "../styles/spellCard.module.css"
 
-import weaponTextContainer from "../assets/text/weapon/weaponText.png"
-import weaponTextContainerGlow from "../assets/text/weapon/weaponTextGlow.png"
+import weaponTextContainer from "../assets/text/weapon/weaponText.webp"
+import weaponTextContainerGlow from "../assets/text/weapon/weaponTextGlow.webp"
 import weaponStyles from "../styles/weaponCard.module.css"
 
-import heroTextContainer from "../assets/text/hero/heroText.png"
-import heroTextContainerGlow from "../assets/text/hero/heroTextGlow.png"
+import heroTextContainer from "../assets/text/hero/heroText.webp"
+import heroTextContainerGlow from "../assets/text/hero/heroTextGlow.webp"
 import heroStyles from "../styles/heroCard.module.css"
 
-import locationTextContainer from "../assets/text/location/locationText.png"
-import locationTextContainerGlow from "../assets/text/location/locationTextGlow.png"
+import locationTextContainer from "../assets/text/location/locationText.webp"
+import locationTextContainerGlow from "../assets/text/location/locationTextGlow.webp"
 import locationStyles from "../styles/locationCard.module.css"
 
 function TextContainer({currentCard, handleGuessClicked}) {

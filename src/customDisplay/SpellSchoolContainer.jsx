@@ -1,6 +1,6 @@
-import spellSchoolContainer from "../assets/spellSchool/spellSchoolFrame.png"
-import spellSchoolContainerGlow from "../assets/spellSchool/spellSchoolFrameGlow.png"
-import spellSchoolFooter from "../assets/spellSchool/spellSchoolFooter.png"
+import spellSchoolContainer from "../assets/spellSchool/spellSchoolFrame.webp"
+import spellSchoolContainerGlow from "../assets/spellSchool/spellSchoolFrameGlow.webp"
+import spellSchoolFooter from "../assets/spellSchool/spellSchoolFooter.webp"
 
 import spellStyles from "../styles/spellCard.module.css"
 import capitalizeFirstLetter from "../functions/capFirstLetter"

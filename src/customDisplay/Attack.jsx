@@ -1,5 +1,5 @@
-import attackImg from "../assets/customOverlay/attack.png"
-import attackGlowImg from "../assets/customOverlay/attackGlow.png"
+import attackImg from "../assets/customOverlay/attack.webp"
+import attackGlowImg from "../assets/customOverlay/attackGlow.webp"
 import minionStyles from "../styles/minionCard.module.css"
 
 function Attack({currentCard, handleGuessClicked}) {
