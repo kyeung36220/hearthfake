@@ -32,27 +32,20 @@ function getRandomCard(cardsArray, availableExpansions) {
     }
 
     //  const debug = {
-    //   "artist": "Luca Zontini",
-    //   "attack": 1,
-    //   "cardClass": "WARRIOR",
+    //   "artist": "Arthur Bozonnet",
+    //   "cardClass": "PRIEST",
     //   "collectible": true,
-    //   "cost": 2,
-    //   "dbfId": 97739,
-    //   "flavor": "He is absolutely fuming.",
-    //   "health": 3,
-    //   "id": "TTN_471",
-    //   "mechanics": [
-    //     "MAGNETIC"
-    //   ],
-    //   "name": "Furious Furnace",
-    //   "race": "MECHANICAL",
-    //   "races": [
-    //     "MECHANICAL"
-    //   ],
-    //   "rarity": "EPIC",
-    //   "set": "TITANS",
-    //   "text": "[x]\u003Cb\u003EMagnetic\u003C/b\u003E\nAlso damages minions next\nto whomever this attacks.",
-    //   "type": "MINION"
+    //   "cost": 1,
+    //   "dbfId": 40373,
+    //   "flavor": "You'd be insane NOT to drink it!",
+    //   "id": "CFM_603",
+    //   "name": "Potion of Madness",
+    //   "rarity": "COMMON",
+    //   "set": "GANGS",
+    //   "spellSchool": "SHADOW",
+    //   "text": "Gain control of an enemy minion with 2 or less Attack until end of turn.",
+    //   "type": "SPELL"
+    
     // }
     // return debug
     return cardSelected

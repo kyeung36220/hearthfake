@@ -205,6 +205,16 @@ function adjustText(card) {
         possibleChanges.push({choice: "startToEnd", current: null})
     }
 
+    if (card.text.includes("friendly minion") ) {
+        possibleChanges.push({choice: "removeFriendly", current: null})
+    }
+    else if (card.text.includes("an enemy minion")) {
+        possibleChanges.push({choice: "removeEnemy", current: null})
+    }
+    else if (card.text.includes("an enemy")) {
+        possibleChanges.push({choice: "changeEnemyToMinion", current: null})
+    }
+
 
 
     const words = newCard.text.split(' ')
@@ -232,9 +242,7 @@ function adjustText(card) {
         if (word.match(handRegex) && !possibleChanges.includes("changeHandKeyWord")) {
             possibleChanges.push({choice: "changeHandKeyWord", current: word.match(handRegex)[0]})
         }
-        else if (/friendly/.test(word)||/enemy/.test(word)) {
-            possibleChanges.push({choice: "removeFriendlyOrEnemy", current: word})
-        }
+
         const bigDudeRegex = /\b(?:\w*Titan\w*|\w*colossal\w*)\b/i
         if (bigDudeRegex.test(word) && !possibleChanges.includes("changeBigDude")) {
             possibleChanges.push({choice: "changeBigDude", current: word})
@@ -273,6 +281,16 @@ function adjustText(card) {
     else if (randomTextAdjustmentChoice === "startToEnd") {
         newCard.text = newCard.text.replace("start of your turn", "end of your turn")
     }
+    else if (randomTextAdjustmentChoice === "removeFriendly") {
+        newCard.text = newCard.text.replace("friendly", "")
+    }
+    else if (randomTextAdjustmentChoice === "removeEnemy") {
+        newCard.text = newCard.text.replace("an enemy minion", "a minion")
+    }
+    else if (randomTextAdjustmentChoice === "changeEnemyToMinion") {
+        newCard.text = newCard.text.replace("an enemy", "a minion")
+    }
+
 
 
     else if (randomTextAdjustmentChoice === "changeSolitaryKeyWord") {
@@ -338,14 +356,6 @@ function adjustText(card) {
             chosenOutdatedKillWord = outdatedKillWords[randI]
         }
         newCard.text = newCard.text.replace(currentWord, chosenOutdatedKillWord)
-    }
-    else if (randomTextAdjustmentChoice === "removeFriendlyOrEnemy") {
-        if (currentWord.includes("friendly")) {
-            newCard.text = newCard.text.replace("friendly", "")
-        }
-        else {
-            newCard.text = newCard.text.replace("enemy", "")
-        }
     }
     else if (randomTextAdjustmentChoice === "removeTradeable") {
         newCard.text= newCard.text.replace("Tradeable", "")
