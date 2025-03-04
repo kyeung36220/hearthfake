@@ -194,7 +194,7 @@ function adjustText(card) {
         possibleChanges.push({choice: "removeMagnetic", current: null})
     }
 
-    if(card.text.includes("random")) {
+    if(card.text.includes(" random ")) {
         possibleChanges.push({choice: "removeRandom", current: null})
     }
 

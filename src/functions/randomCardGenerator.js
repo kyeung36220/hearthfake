@@ -31,23 +31,29 @@ function getRandomCard(cardsArray, availableExpansions) {
       return false
     }
 
-    //  const debug = {
-    //   "artist": "Arthur Bozonnet",
-    //   "cardClass": "PRIEST",
-    //   "collectible": true,
-    //   "cost": 1,
-    //   "dbfId": 40373,
-    //   "flavor": "You'd be insane NOT to drink it!",
-    //   "id": "CFM_603",
-    //   "name": "Potion of Madness",
-    //   "rarity": "COMMON",
-    //   "set": "GANGS",
-    //   "spellSchool": "SHADOW",
-    //   "text": "Gain control of an enemy minion with 2 or less Attack until end of turn.",
-    //   "type": "SPELL"
-    
-    // }
-    // return debug
+     const debug = {
+      "artist": "Mike Sass",
+      "attack": 3,
+      "cardClass": "NEUTRAL",
+      "collectible": true,
+      "cost": 2,
+      "dbfId": 69662,
+      "faction": "ALLIANCE",
+      "flavor": "He's not really all that crazy, he is just not as careful with explosives as he should be.",
+      "health": 2,
+      "howToEarn": "Unlocked by completing the Tutorial.",
+      "howToEarnGolden": "Unlocked after 500 total wins.",
+      "id": "CORE_EX1_082",
+      "mechanics": [
+        "BATTLECRY"
+      ],
+      "name": "Mad Bomber",
+      "rarity": "COMMON",
+      "set": "CORE",
+      "text": "\u003Cb\u003EBattlecry:\u003C/b\u003E Deal 3 damage randomly split between all other characters.",
+      "type": "MINION"
+    }
+    return debug
     return cardSelected
   
 }
