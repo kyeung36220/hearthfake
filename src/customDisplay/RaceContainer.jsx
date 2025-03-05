@@ -1,7 +1,7 @@
-import dualRaceContainer from "../assets/races/dualRaceContainer.png"
-import dualRaceContainerGlow from "../assets/races/dualRaceContainerGlow.png"
-import singleRaceContainer from "../assets/races/singleRaceContainer.png"
-import singleRaceContainerGlow from "../assets/races/singleRaceContainerGlow.png"
+import dualRaceContainer from "../assets/races/dualRaceContainer.webp"
+import dualRaceContainerGlow from "../assets/races/dualRaceContainerGlow.webp"
+import singleRaceContainer from "../assets/races/singleRaceContainer.webp"
+import singleRaceContainerGlow from "../assets/races/singleRaceContainerGlow.webp"
 import capitalizeFirstLetter from "../functions/capFirstLetter"
 import minionStyles from "../styles/minionCard.module.css"
 

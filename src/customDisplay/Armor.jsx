@@ -1,5 +1,5 @@
-import armorImg from "../assets/customOverlay/heroShield.png"
-import armorGlowImg from "../assets/customOverlay/heroShieldGlow.png"
+import armorImg from "../assets/customOverlay/heroShield.webp"
+import armorGlowImg from "../assets/customOverlay/heroShieldGlow.webp"
 import heroStyles from "../styles/heroCard.module.css"
 
 function Armor({currentCard, handleGuessClicked}) {

@@ -1,5 +1,5 @@
-import healthGlowImg from "../assets/customOverlay/healthGlow.png"
-import healthImg from "../assets/customOverlay/health.png"
+import healthGlowImg from "../assets/customOverlay/healthGlow.webp"
+import healthImg from "../assets/customOverlay/health.webp"
 import minionStyles from "../styles/minionCard.module.css"
 
 function Health({currentCard, handleGuessClicked}) {

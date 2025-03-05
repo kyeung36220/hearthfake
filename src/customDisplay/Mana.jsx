@@ -1,5 +1,5 @@
-import manaGlowImg from "../assets/customOverlay/manaGlow.png"
-import manaImg from "../assets/customOverlay/mana.png"
+import manaGlowImg from "../assets/customOverlay/manaGlow.webp"
+import manaImg from "../assets/customOverlay/mana.webp"
 import minionStyles from "../styles/minionCard.module.css"
 import heroStyles from "../styles/heroCard.module.css"
 

@@ -1,5 +1,5 @@
-import weaponAttackImg from "../assets/customOverlay/weaponAttack.png"
-import weaponAttackGlowImg from "../assets/customOverlay/weaponAttackGlow.png"
+import weaponAttackImg from "../assets/customOverlay/weaponAttack.webp"
+import weaponAttackGlowImg from "../assets/customOverlay/weaponAttackGlow.webp"
 import weaponStyles from "../styles/weaponCard.module.css"
 
 function WeaponAttack({currentCard, handleGuessClicked}) {
