@@ -27,6 +27,9 @@ import WeaponAttack from "./customDisplay/WeaponAttack.jsx"
 import Durability from "./customDisplay/Durability.jsx"
 import Armor from "./customDisplay/Armor.jsx"
 
+// Adding Card Library JSON
+import cardData from "./assets/cards.collectible.json"
+
 function Card( {setCurrentScore, setBestScore, currentScore, bestScore, availableExpansions }) {
     let [cards, setCards] = useState([])
     let [currentCard, setCurrentCard] = useState({})
@@ -36,9 +39,9 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore, availabl
     useEffect(() => {
         const fetchCards = async () => {
             try {
-                const response = await fetch("https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json")
-                const cardsArray = await response.json()
-                setCards(cardsArray)
+                // const response = await fetch("https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json")
+                // const cardsArray = await response.json()
+                setCards(cardData)
             } catch (error) {
                 console.error("Error fetching card data:", error);
             }
@@ -69,7 +72,7 @@ function Card( {setCurrentScore, setBestScore, currentScore, bestScore, availabl
             setIsCurrentCardWrong(true)
         }
         
-        document.querySelector(".card").src= `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${cardSelected.id}.png`
+        document.querySelector(".card").src = `https://a-amen.github.io/hsfakedump.github.io/assets/images/${cardSelected.id}.webp`
     }
 
     function handleGuessClicked(e) {

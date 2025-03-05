@@ -23,7 +23,7 @@ function handleGuessClickedDOM(e, isGuessCorrectBool,currentCard, isCurrentCardW
         document.querySelector("#newGame").classList.add("displayBlock")
 
         document.querySelector("#errorCard").classList.remove("hidden")
-        document.querySelector("#errorCard").src = `https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${currentCard.id}.png`
+        document.querySelector("#errorCard").src = `https://a-amen.github.io/hsfakedump.github.io/assets/images/${currentCard.id}.webp`
 
         document.querySelector("#blocker").classList.remove("hidden")
 
